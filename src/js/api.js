@@ -56,3 +56,44 @@ export async function getDiskountProduct() {
 }
 getDiskountProduct().then(product => console.log(product));
 
+// Перелік продуктів з фільтрацією
+
+export async function getFilteredProduct({
+    keyword,
+    category,
+    byABC = true,
+    byPrice = false,
+    byPopularity = false,
+    page = 1,
+    limit = 6,
+}) {
+    try {
+        const params = new URLSearchParams({
+    keyword,
+    category,
+    byABC: byABC ? "true" : "false",
+    byPrice: byPrice ? "true" : "false",
+    byPopularity: byPopularity ? "true" : "false",
+    page,
+    limit,
+        })
+        if (keyword) {
+            params.append("keyword", keyword);
+        }
+        const response = await axios.get(`${BASE_URL}/products?${params}`);
+        return response.data;
+    }
+    catch (error) {
+        console.log(error.message);
+    }
+}
+const filters = {
+    category: "Fresh_Produce",
+    byABC: true,
+    byPrice: false,
+    byPopularity: false,
+    page: 1,
+    limit: 6,
+}
+
+getFilteredProduct(filters).then(product => console.log(product));
