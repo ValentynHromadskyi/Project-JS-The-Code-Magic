@@ -76,11 +76,11 @@
 }
 
 
-.hero-item-organic {
+.hero-organic-label {
     position:absolute;
     width: 100px;
 height: 100px;
 flex-shrink: 0;
-z-index: 999;
-/* fill: #FDC152; */
+right: 8px;
+top:-7px;
 }
