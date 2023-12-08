@@ -1,0 +1,125 @@
+.discount-container {
+    padding: 80px 20px;
+}
+
+.discount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discount-title {
+    text-align: start;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500px;
+}
+
+.product-card {
+    background-color: #fafafa;
+    border-radius: 15px;
+    width: 335px;
+    height: 232px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    margin-bottom: 20px;
+}
+
+.product-background {
+    background-color: #E8E8E2;
+    width: 304px;
+    height: 150px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.product-image {
+    background-color: #E8E8E2;
+    width: 114px;
+    height: 114px;
+}
+
+.product-details {
+    display: flex;
+    margin-top: 23px;
+    align-items: center;
+    width: fit-content;
+}
+
+.details-text {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 8px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 500px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 500px;
+}
+
+.discount-label {
+    display: flex;
+}
+
+.cart-icon {
+    border-radius: 30px;
+    background: #6D8434;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 704px;
+    }
+
+    .discount-container {
+        padding: 100px 32px;
+    }
+
+    .discount {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1240px;
+    }
+
+    .discount-container {
+        padding-left: 1065px;
+        padding-right: 100px;
+        padding-top: 40px;
+        padding-bottom: 140px;
+    }
+
+    .discount {
+        flex-direction: column;
+        width: 275px;
+        gap: 0;
+    }
+
+    .product-card {
+        width: 275px;
+    }
+
+    .product-background {
+        width: 243px;
+    }
+
+    .product-details {
+        width: fit-content;
+    }
+}
