@@ -87,7 +87,7 @@ top:-7px;
 }
 
 .hero-title{
-   font-size: 80px;
+font-size: 80px;
 line-height: 1.0;
 letter-spacing: -1.6px;
 margin-top: 116px;
@@ -107,10 +107,6 @@ flex-shrink: 0;
 right: 10px;
 top:-30px;
 }
-
-
-
-
 
 @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
@@ -142,9 +138,32 @@ top:-30px;
     }
 
 
+    .hero-title{   
+font-size: 80px;
+line-height: 1.0; 
+letter-spacing: -1.6px;
+margin-top: 77px;
+margin-bottom: 20px ;
+    }
+
+    .hero-text{
+font-size: 18px;
+line-height: 1.33;
+    }
+
+    .hero-organic-label {
+        position:absolute;
+        width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    right: 20px;
+    top:-50px;
+    }
+
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
         .hero-img {background-image: url(/img/hero/hero_desctop_2x.jpg);}
     }
+
 }
