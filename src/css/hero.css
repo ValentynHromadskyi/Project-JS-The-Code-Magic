@@ -1,23 +1,26 @@
 /*----------   Mobil ------------- */
-.hero{
+.hero .container{
     background-image: url(/img/hero/hero_mob_1x.jpg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
+    background-position: center;
+    background: no-repeat;
     position: relative;
-  background-size: cover;
-  display:block;
-  margin: 0 auto;
-  width: 100%;
+    display: block;
+    margin: 0 auto;
+  background-size: contain;
+  /* background-size: auto; */
+  /* background-size:335px auto; */
+  /* width: 100%; */
   max-width: 375px;
-  margin-bottom: 74px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+
   margin-top: 271px;
   height: 100vh;
   /* background:  lightgray -235px -45.333px / 241.194% 112.222% no-repeat; */
-   background:  lightgray;
-   flex-shrink: 0;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-start;
+   /* background:  lightgray; */
+   /* margin-bottom: 74px; */
+   /* justify-content: flex-start; */
 
 }
 
@@ -36,11 +39,17 @@
        position:absolute;
        z-index: 1;
 }
+.hero-title-accent{  
+    color: #6D8434;
+    }
+
+
+
 
 .hero-text{
     position:absolute;
     color: rgba(1, 1, 1, 0.80);
-    /* text-align: center; */
+    text-align: center;
     font-family: Neue Montreal;
     font-size: 14px;
     font-style: normal;
@@ -48,6 +57,7 @@
     line-height: 1.28; /* 128.571% */
        top: -87px;
        z-index: 1;
+       width: 292px;
 
 }
 
@@ -61,5 +71,5 @@
 @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
-    .hero {background-image: url(/img/hero/hero-mob-2x.jpg);}
+    .hero .container {background-image: url(/img/hero/hero-mob-2x.jpg);}
 }
