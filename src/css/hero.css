@@ -1,0 +1,65 @@
+/*----------   Mobil ------------- */
+.hero{
+    background-image: url(/img/hero/hero_mob_1x.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: relative;
+  background-size: cover;
+  display:block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 375px;
+  margin-bottom: 74px;
+  margin-top: 271px;
+  height: 100vh;
+  /* background:  lightgray -235px -45.333px / 241.194% 112.222% no-repeat; */
+   background:  lightgray;
+   flex-shrink: 0;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+
+}
+
+    .hero-title{
+        
+         width: 335px;
+        color: #010101;
+        text-align: center;
+        font-family: Neue Montreal;
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.09;
+       top: -199px; 
+       /* align-items: flex-start; */
+       position:absolute;
+       z-index: 1;
+}
+
+.hero-text{
+    position:absolute;
+    color: rgba(1, 1, 1, 0.80);
+    /* text-align: center; */
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28; /* 128.571% */
+       top: -87px;
+       z-index: 1;
+
+}
+
+.hero-container{
+
+}
+
+
+
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .hero {background-image: url(/img/hero/hero-mob-2x.jpg);}
+}
