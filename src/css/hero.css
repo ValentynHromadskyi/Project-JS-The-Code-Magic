@@ -7,6 +7,7 @@
     display: block;
     margin: 0 auto;
   background-size: contain;
+  /* background-size: cover; */
   /* background-size: auto; */
   /* background-size:335px auto; */
   /* width: 100%; */
@@ -72,4 +73,14 @@
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
     .hero .container {background-image: url(/img/hero/hero-mob-2x.jpg);}
+}
+
+
+.hero-item-organic {
+    position:absolute;
+    width: 100px;
+height: 100px;
+flex-shrink: 0;
+z-index: 999;
+/* fill: #FDC152; */
 }
