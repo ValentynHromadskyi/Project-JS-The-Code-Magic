@@ -1,140 +1,161 @@
-/* .header {
-  padding: 20px 0;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
-}
-
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
-} */
-
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* padding: 0 16px; */
+.header-container {
+  max-width: 375px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.logo-header {
-  color: #010101;
-}
-
-*/ a {
-  text-decoration: none;
-}
-
-.page-header .header-container {
+.logo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
-  margin: 0 auto;
+  gap: 8px;
+  font-family: 'Quincy CF';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: -0.02em;
 }
 
-/* .page-header {
-  background: var(--light-blue, #F7FAFF);
-} */
-
-.header-nav {
+.header-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  width: 28px;
+  height: 28px;
+  background-color: #6d8434;
+  border-radius: 50%;
+  fill: #e8e8e2;
 }
 
-.header-icon-link {
-  padding: 32px 0;
-  color: #010101;
-    /* font-family: FONTSPRING DEMO - Quincy CF Black; */
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 20px;
-    letter-spacing: -0.36px;
+.header-logo-icon {
+  width: 16px;
+  height: 16px;
 }
 
-.header-icon {
-  display: block;
-  position: relative;
+/*-----------------------------------------------------------------------------------*/
+.page-header {
+  padding: 18px 0 72px;
 }
 
-.list-header {
+.header-wrapper {
   display: flex;
-  gap: 30px;
   align-items: center;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  list-style-type: none;
-  padding: 8px;
+  justify-content: space-between;
 }
 
-.page-link {
-  font-size: 18px;
-  font-weight: 400;
-  color: #0a224a;
-  display: block;
-  position: relative;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none;
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/*--------------------------Media-Header--------------------------*/
-
-/* @media screen and (max-width: 1439px) {
+/* .header-menu-item:first-child {
+    color: #e8e8e2;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 30px;
+    background-color: #6d8434;
+    padding: 10px 20px;
 } */
 
-@media screen and (min-width: 1440px) {
+.header-menu-button-home {
+  display: flex;
+  align-items: center;
+  color: #e8e8e2;
+  font-size: 14px;
+  line-height: 1.29;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 10px 20px;
+  background-color: #6d8434;
+}
 
-  .page-header .header-container {
-    display: inherit;
+.header-menu-button-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 30px;
+  background: #6d8434;
+}
+
+.header-menu-icon-cart {
+  width: 14px;
+  height: 14px;
+  fill: #e8e8e2;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .page-header {
+    padding: 24px 0 116px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .header-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-logo-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-menu {
+    gap: 16px;
+  }
+
+  .header-menu-cart {
+    font-size: 18px;
+  }
+
+  .header-menu-icon-cart {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    gap: 14px;
+  }
+
+  .header-menu-button-home {
+    font-size: 18px;
+    padding: 12px 28px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
     max-width: 1440px;
     padding: 0 100px;
   }
 
-  .header-nav {
-    gap: 792px;
+  .page-header {
+    padding: 24px 0 77px;
+  }
+
+  .header-menu {
+    gap: 24px;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .page-header .header-container {
-    max-width: 375px;
-    justify-content: center;
-  }
-
-  .header-cart {
+@media (max-width: 767px) {
+  .header-menu-cart {
     display: none;
-  }
-
-  .header-icon {
-    width: 100px;
-    height: 16px;
-  }
-
-}
-
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-
-  .page-header .header-container {
-    max-width: 768px;
-    padding: 0 32px;
-    justify-content: center;
-  }
-
-  .header-nav {
-    gap: 262px;
   }
 }
