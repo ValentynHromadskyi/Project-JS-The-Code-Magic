@@ -40,4 +40,4 @@ import{a}from"./vendor-a61d8330.js";(function(){const o=document.createElement("
         </div>
       </div>
     `}async function F(){try{const t=await l(),o=g(t,2),r=document.getElementById("discountContainer"),c=document.createDocumentFragment();o.forEach(e=>{c.appendChild(f(e))}),r.appendChild(c)}catch(t){console.error(t.message)}}F();l().then(t=>t.data).then(t=>{const o=g(t,2),r=document.getElementById("discountContainer");o.forEach(c=>{r.innerHTML+=f(c)})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=discount-1cb9a112.js.map
+//# sourceMappingURL=discount-702f7b2b.js.map
