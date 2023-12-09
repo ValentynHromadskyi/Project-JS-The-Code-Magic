@@ -1,16 +1,7 @@
-<<<<<<< Updated upstream
 function getRandomProducts(products, count) {
   const shuffledProducts = products.sort(() => 0.5 - Math.random());
   return shuffledProducts.slice(0, count);
 }
-=======
-
-fetch('https://food-boutique.b.goit.study/api/products/discount')
-    .then(response => response.json())
-    .then(products => {
-    
-      const randomProducts = getRandomProducts(products, 2);
->>>>>>> Stashed changes
 
 import { getDiskountProduct } from './api';
 
@@ -36,7 +27,7 @@ import { getDiskountProduct } from './api';
   }
   
 // Fetch discount products and render them
-getDiskountProduct()
+await getDiskountProduct()
   .then(response => response.data)
   .then(products => {
     const randomProducts = getRandomProducts(products, 2);
