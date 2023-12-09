@@ -31,9 +31,11 @@ function renderProductCard(product) {
           </div>
           <div class="price-icon">
           <p class="productlist-price">$${product.price.toFixed(2)}</p>
-          <svg class="cart-icon" width="34" height="34">
-            <use href="./src/icons.svg#icon-heroicons-solid_shopping-cart"></use>
+          <div class="price-icon-cont">
+          <svg class="productlist-icon" width="18" height="18">
+            <use href="./src/icons.svg#icon-shopping-cart"></use>
           </svg>
+          </div>
           </div>
         </div>
       </div>
@@ -41,23 +43,17 @@ function renderProductCard(product) {
   `;
 }
 
-// Оголошуємо функцію для отримання випадкового масиву продуктів
-function getRandomProducts(array, number) {
-  const shuffled = array.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, number);
-}
-
-// Оголошуємо головну функцію, яка викликається при завантаженні сторінки
 async function main() {
   const keyword = 'Ac'; // Ваш ключовий запит
   const category = 'Fresh_Produce'; // Ваша обрана категорія
+  const page = 1; // Значення сторінки пагінації
+  const limit = 6; // Ліміт кількості продуктів на сторінці
 
   try {
-    const products = await getProductsList(keyword, category);
-    const randomProducts = getRandomProducts(products, 6);
+    const products = await getProductsList(keyword, category, page, limit);
 
     const productList = document.getElementById('productList');
-    randomProducts.forEach(product => {
+    products.forEach(product => {
       productList.innerHTML += renderProductCard(product);
     });
   } catch (error) {
@@ -67,3 +63,4 @@ async function main() {
 
 // Викликаємо головну функцію при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', main);
+
