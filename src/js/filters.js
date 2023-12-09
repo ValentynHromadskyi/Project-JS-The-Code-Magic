@@ -1,7 +1,7 @@
 import { getProductsCategories } from './api.js';
 
 const refs = {
-  form: document.querySelector('.categories'),
+  form: document.querySelector('.filters-categories'),
 };
 
 async function loadCategories() {

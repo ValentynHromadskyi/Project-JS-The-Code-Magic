@@ -45,10 +45,12 @@
 }
 
 .product-details {
-    display: flex;
     margin-top: 23px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     align-items: center;
-    width: fit-content;
 }
 
 .details-text {
@@ -96,13 +98,6 @@
 @media screen and (min-width: 1440px) {
     .container {
         max-width: 1240px;
-    }
-
-    .discount-container {
-        padding-left: 1065px;
-        padding-right: 100px;
-        padding-top: 40px;
-        padding-bottom: 140px;
     }
 
     .discount {

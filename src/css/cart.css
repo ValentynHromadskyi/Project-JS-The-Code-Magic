@@ -1,0 +1,23 @@
+.cart-title {
+    display: flex;
+    
+}
+.cart-title-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #6D8434;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+}
+.cart-title-icon-svg {
+    fill: #E8E8E2;
+}
+.cart-title-text {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    text-transform: capitalize;
+}
