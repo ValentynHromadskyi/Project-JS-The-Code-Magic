@@ -1,0 +1,146 @@
+
+
+.productlist-container {
+    background-color: #E8E8E2;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+} 
+
+.productlist {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.productlist-card {
+    background-color: #fafafa;
+    border-radius: 20px;
+    width: 335px;
+    height: 356px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productlist-background {
+    background-color: #E8E8E2;
+    width: 295px;
+    height: 178px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 16px;
+}
+
+.productlist-image {
+    background-color: #E8E8E2;
+    width: 140px;
+    height: 140px;
+}
+
+.productlist-details {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 295px;
+}
+
+
+.pl-det {
+    display: flex;
+    font-size: 11px;
+    gap: 8px;
+    color: darkgray;
+}
+
+.productlist-category,
+.productlist-size,
+.productlist-popularity {
+    display: flex;
+}
+
+.word {
+    color: black;
+}
+
+.productlist-price {
+    margin-top: auto;
+}
+
+.productlist-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.productlist-price {
+    color: #010101;
+    font-weight: 500;
+}
+
+.price-icon {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 295px;
+    padding-top: 40px;
+}
+
+.cart-icon {
+    border-radius: 30px;
+    background: #6D8434;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 704px;
+    }
+    .productlist-card {
+        width: 336px;
+        height: 360px;
+        flex-basis: calc((100%-32px)/2);
+    }
+    .productlist {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 32px 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1240px;
+    }
+    .productlist-container {
+        width: 925px;
+    }
+    .productlist-card {
+        width: 295px;
+        height: 363px;
+    }
+    .productlist-background {
+        width: 255px;
+        height: 178px;
+    }
+    .price-icon {
+        width: 255px;
+        margin-top: 0;
+    }
+    .productlist-details {
+        width: 255px;
+    }
+         .productlist-card {
+             flex-basis: calc((100%-20px)/4);
+         }
+    
+         .productlist {
+             flex-wrap: wrap;
+             flex-direction: row;
+             gap: 40px 20px;
+         }
+}
