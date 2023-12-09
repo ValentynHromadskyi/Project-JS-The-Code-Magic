@@ -1,0 +1,169 @@
+/*----------   Mobil ------------- */
+container {
+    max-width: 335px;
+}
+
+.hero-title{
+    width:100%;
+    color: #010101;
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.09;
+    margin-top: 72px;
+    margin-bottom: 16px;
+}
+
+.hero-title-accent{  
+color: #6D8434;
+}
+
+.hero-text{
+color: rgba(1, 1, 1, 0.80);
+text-align: center;
+font-family: Neue Montreal;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.28; 
+max-width: 492px;
+margin-bottom: 32px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.hero-img{
+    background-image: url(/img/hero/hero_mob_1x.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block;
+    border-radius: 45px; 
+    background-size: cover;
+    /* background-size: contain; */
+    max-width: 100%;
+    flex-shrink: 0;
+    flex-direction: column;
+    height: 480px; 
+}
+
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .hero-img {background-image: url(/img/hero/hero_mob_2x.jpg);}
+}
+
+
+.hero-organic-label {
+    position:absolute;
+    width: 100px;
+height: 100px;
+flex-shrink: 0;
+right: 8px;
+top:-7px;
+}
+
+/* -----------Tablet--------------- */
+
+@media screen and (min-width: 768px) and (max-width:1439px) {
+
+.hero-img{
+    background-image: url(/img/hero/hero_tablet_1x.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block;
+    border-radius: 45px; 
+    background-size: cover;
+    /* background-size: contain; */
+    max-width: 100%;
+    flex-shrink: 0;
+    flex-direction: column;
+    height: 580px; 
+}
+
+.hero-title{
+font-size: 80px;
+line-height: 1.0;
+letter-spacing: -1.6px;
+margin-top: 116px;
+margin-bottom: 20px;
+}
+
+.hero-text{
+font-size: 18px;
+line-height: 1.33;
+}
+
+.hero-organic-label {
+    position:absolute;
+    width: 100px;
+height: 100px;
+flex-shrink: 0;
+right: 10px;
+top:-30px;
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .hero-img {background-image: url(/img/hero/hero_tablet_2x.jpg);}
+}
+
+}
+
+
+
+
+/* ---------Desctop----------- */
+
+@media (min-width: 1440px) {
+    .hero-img{
+        background-image: url(/img/hero/hero_desctop_1x.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        display: block;
+        border-radius: 45px; 
+        background-size: cover;
+        /* background-size: contain; */
+        max-width: 100%;
+        flex-shrink: 0;
+        flex-direction: column;
+        height: 350px; 
+    }
+
+
+    .hero-title{   
+font-size: 80px;
+line-height: 1.0; 
+letter-spacing: -1.6px;
+margin-top: 77px;
+margin-bottom: 20px ;
+    }
+
+    .hero-text{
+font-size: 18px;
+line-height: 1.33;
+    }
+
+    .hero-organic-label {
+        position:absolute;
+        width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    right: 20px;
+    top:-50px;
+    }
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .hero-img {background-image: url(/img/hero/hero_desctop_2x.jpg);}
+    }
+
+}
