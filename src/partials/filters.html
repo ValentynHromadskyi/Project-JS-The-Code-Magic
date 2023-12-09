@@ -1,15 +1,24 @@
 <section class="filters section">
   <div class="container">
 <h2 class="filters-title">Filters:</h2>
-<div class="forms-wrap">
+<div class="filters-forms-wrap">
     <form class="fiters-form" autocomplete="off">
-      <input type="text" class="input" name="search" autofocus />
-      <button type="submit" class="fiters-bth">Submit</button>
+      <input type="text" class="filters-input" name="search" placeholder="Search for anything" autofocus />
+      <button type="submit" class="filters-bth">
+        <svg class="search-icon" width="20" height="20">
+          <use href="./icons.svg#icon-search"></use>
+        </svg>
+      </button>
     </form>
-    
-    <select class="categories"></select>
-    
-    <select class="sorting">
+    <div class="filters-categories-wrap">
+    <select class="filters-categories"></select>
+    <svg class="filters-cat-icon" width="20" height="20">
+      <use href="./icons.svg#icon-chevron-down"></use>
+    </svg>
+  </div>
+  
+  <div class="filters-sorting-wrap">
+    <select class="filters-sorting">
         <option value="value1">A to Z</option>
         <option value="value2">Z to A</option>
         <option value="value3">Cheap</option>
@@ -18,6 +27,10 @@
         <option value="value6">Not popular</option>
         <option value="value7">Show all</option>
     </select>
+    <svg class="filters-sort-icon" width="20" height="20">
+      <use href="./icons.svg#icon-chevron-down"></use>
+    </svg>
+  </div>
 </div>
 </div>
 </section>
