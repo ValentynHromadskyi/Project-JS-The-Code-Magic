@@ -1,16 +1,10 @@
 /*------------------------------------------Header------------------------------------------*/
 
-/* .header-container {
-  max-width: 375px;
-  margin: 0 auto;
-  padding: 0 20px;
-} */
-
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Quincy CF';
+  font-family: "FONTSPRING DEMO - Quincy CF Black;";
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
@@ -95,11 +89,6 @@ svg {
 /*------------------------------------------Media-Header------------------------------------------*/
 
 @media (min-width: 768px) {
-  /* .header-container {
-    max-width: 768px;
-    padding: 0 32px;
-  } */
-
   .page-header {
     padding-top: 24px;
   }
@@ -146,15 +135,6 @@ svg {
 }
 
 @media (min-width: 1440px) {
-  /* .header-container {
-    max-width: 1440px;
-    padding: 0 100px;
-  } */
-
-  .page-header {
-    padding-top: 24px;
-  }
-
   .header-menu {
     gap: 24px;
   }
