@@ -1,0 +1,210 @@
+.footer-container {
+    display: block;
+    width: 100%;
+    background-color: #6D8434;
+}
+
+/* LOGO */
+
+.footer-logo-div {
+    display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+}
+
+.footer-svg {
+    background: #E8E8E2;
+    fill: #6D8434;
+    text-align: center;
+    border-radius: 50px;
+    width: 18px;
+    height: 18px;
+    padding: 6px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo-footer-text {
+    color: #E8E8E2;
+    font-family: 'FONTSPRING DEMO - Quincy CF Black';
+    font-style: normal;
+    font-weight: 900;
+}
+
+/* SOCIAL LINKS */
+
+.foot-soc-link {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.social-icon {
+    fill: #E8E8E2;
+    padding: 8px;
+    border-radius: 10px;
+        border: 1px solid rgba(232, 232, 226, 0.30);
+        justify-content: center;
+        align-items: center;
+}
+
+.foot-text-content {
+    display: flex;
+        flex-direction: column;
+        width: 335px;
+}
+
+.footer-title {
+    color: #E8E8E2;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-description {
+    color: rgba(232, 232, 226, 0.70);
+    
+        font-family: Arial,
+            Helvetica,
+            sans-serif;
+}
+
+.footer-sub {
+    display: inline-flex;
+    max-width: 335px;
+        height: 136px;
+        flex-direction: column;
+        gap: 20px;
+        flex-shrink: 0;
+        margin-bottom: 80px;
+}
+
+.footer-sub-text {
+    color: #E8E8E2;
+        font-family: Arial,
+            Helvetica,
+            sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+}
+
+.form-field {
+    display: flex;
+        padding: 12px 284px 12px 18px;
+        background: none;
+        align-items: center;
+        gap: 10px;
+        border-radius: 30px;
+            border: 1px solid #E8E8E2;
+            color: rgba(232, 232, 226, 0.60);
+            
+                font-family: Neue Montreal;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 18px;
+}
+
+.foot-sub-button {
+    display: flex;
+        width: 335px;
+        padding: 12px 149px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+            background: #E8E8E2;
+            color: #010101;
+            border: none;
+                font-family: Arial,
+                    Helvetica,
+                    sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 18px;
+}
+
+.footer-smal-text {
+    display: flex;
+        width: 335px;
+        align-items: center;
+        align-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+}
+
+.foot-first-txt {
+    color: #E8E8E2;
+    
+        font-family: Arial,
+            Helvetica,
+            sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+}
+
+.foot-second-txt {
+    color: #E8E8E2;
+    
+        text-align: right;
+        font-family: Arial,
+            Helvetica,
+            sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+}
+
+@media only screen and (max-width:375px) {
+    .footer-container {
+        padding-top: 40px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+    }
+
+    .logo-footer-text {
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.36px;
+        }
+
+.foot-social-div {
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+    
+    .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+.foot-text-content {
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 80px;
+}
+
+.footer-title {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+                /* 116.667% */
+        letter-spacing: -0.48px;
+}
+
+.footer-description {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+}
+
+
