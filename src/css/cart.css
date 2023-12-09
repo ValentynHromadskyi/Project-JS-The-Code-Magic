@@ -16,8 +16,9 @@
     fill: #E8E8E2;
 }
 .cart-title-text {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 24px;
     line-height: 1.17;
     text-transform: uppercase;
+    text-align: center;
 }
