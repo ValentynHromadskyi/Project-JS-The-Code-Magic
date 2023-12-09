@@ -26,8 +26,27 @@ import { getDiskountProduct } from './api';
     `;
   }
   
+async function renderDiscountProducts() {
+  try {
+    const products = await getDiskountProduct();
+    const randomProducts = getRandomProducts(products, 2);
+    const discountContainer = document.getElementById('discountContainer');
+
+    const fragment = document.createDocumentFragment();
+    randomProducts.forEach(product => {
+      fragment.appendChild(renderDiscountProductCard(product));
+    });
+
+    discountContainer.appendChild(fragment);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+renderDiscountProducts();
+
 // Fetch discount products and render them
-await getDiskountProduct()
+getDiskountProduct()
   .then(response => response.data)
   .then(products => {
     const randomProducts = getRandomProducts(products, 2);
