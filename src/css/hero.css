@@ -4,16 +4,15 @@ container {
 }
 
 .hero-title{
-    width:100%;
+    width: 335px;
     color: #010101;
     text-align: center;
-    font-family: Neue Montreal;
     font-size: 44px;
-    font-style: normal;
     font-weight: 500;
     line-height: 1.09;
     margin-top: 72px;
     margin-bottom: 16px;
+    letter-spacing: -0.02em;
 }
 
 .hero-title-accent{  
@@ -23,12 +22,9 @@ color: #6D8434;
 .hero-text{
 color: rgba(1, 1, 1, 0.80);
 text-align: center;
-font-family: Neue Montreal;
 font-size: 14px;
-font-style: normal;
-font-weight: 400;
 line-height: 1.28; 
-max-width: 492px;
+width: 292px;
 margin-bottom: 32px;
 margin-left: auto;
 margin-right: auto;
@@ -89,15 +85,18 @@ top:-7px;
 .hero-title{
 font-size: 80px;
 line-height: 1.0;
-letter-spacing: -1.6px;
+letter-spacing: -0.02em;
 margin-top: 116px;
 margin-bottom: 20px;
 width: 658px;
+margin-left: 23px;
+margin-right: 23px;
 }
 
 .hero-text{
 font-size: 18px;
 line-height: 1.33;
+width: 492px;
 }
 
 .hero-organic-label {
@@ -144,12 +143,16 @@ font-size: 80px;
 line-height: 1.0; 
 letter-spacing: -1.6px;
 margin-top: 77px;
-margin-bottom: 20px ;
+margin-bottom: 20px;
+width: 1042px;
+margin-left: 99px;
+margin-right: 99px;
     }
 
     .hero-text{
 font-size: 18px;
 line-height: 1.33;
+width: 492px;
     }
 
     .hero-organic-label {
