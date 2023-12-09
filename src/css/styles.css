@@ -46,6 +46,14 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/*-------CONTAINER  <= 374px-----------------*/
+@media screen and (max-width: 374px) {
+  .container {
+    max-width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
 
 /*-------CONTAINER 375px-----------------*/
 @media screen and (min-width: 375px) {
