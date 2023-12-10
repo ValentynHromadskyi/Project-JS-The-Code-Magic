@@ -9,7 +9,7 @@ const refs = {
 
 refs.form.addEventListener('submit', handleFiltersSubmit);
 
-await function loadCategories() {
+function loadCategories() {
   try {
     const categoriesList = await getProductsCategories();
     const data = categoriesList.data;
