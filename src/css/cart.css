@@ -1,6 +1,7 @@
-.cart-title {
+.cart-title-block {
     display: flex;
-    
+    padding-top: 72px;
+    margin-left: 20px;
 }
 .cart-title-icon {
     width: 34px;
@@ -15,10 +16,124 @@
 .cart-title-icon-svg {
     fill: #E8E8E2;
 }
+.cart-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .cart-title-text {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 24px;
     line-height: 1.17;
     text-transform: uppercase;
     text-align: center;
+    padding: auto;
 }
+.cart-img-empty-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-shopping-cart {
+    margin-top: 100px;
+    background-color: rgba(232, 232, 226, 1);
+    width: 132px;
+    height: 114px;
+}
+.cart-text {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+.cart-text-empty {
+    text-align: center;
+    margin-top: 28px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    /* text-transform: capitalize; */
+    }
+.cart-text-span {
+    color: #6D8434;
+}
+    
+.cart-all-text {
+    text-align: center;
+    margin-top: 14px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28;
+}
+
+
+/* -------------стилі для JS---------------- */
+.delete-all-section {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 14px;
+    gap: 8px;
+}
+.delete-all-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.delete-close-icon {
+    fill: #010101;
+}
+
+
+/* <-----------ПЛАНШЕТ-------------------> */
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 704px;
+    }
+    .cart-title-block {
+        padding-top: 99px;
+        margin-left: 32px;
+}
+    .img-shopping-cart {
+        margin-top: 130px;
+        width: 164px;
+        height: 140px;
+    }
+    .cart-text-empty {
+        margin-top: 40px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .cart-all-text {
+        text-align: center;
+        padding-top: 14px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+
+        .delete-all-section {
+            margin-top: 26px;
+            gap: 8px;
+        }
+
+}
+
+/* <-----------ДЕСКТОП-------------------> */
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1240px;
+    }
+    .cart-title-block {
+        padding-top: 81px;
+        margin-left: 100px;
+    }
+    .img-shopping-cart {
+        margin-top: 150px;
+    }
+    
+} 
