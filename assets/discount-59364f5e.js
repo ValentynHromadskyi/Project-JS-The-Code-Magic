@@ -62,4 +62,4 @@ import{a as i}from"./vendor-a61d8330.js";(function(){const s=document.createElem
         </div>
       </div>
     `}f().then(t=>t.data).then(t=>{const s=B(t,2),r=document.getElementById("discountContainer");s.forEach(c=>{r.innerHTML+=F(c)})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=discount-25bf14ba.js.map
+//# sourceMappingURL=discount-59364f5e.js.map
