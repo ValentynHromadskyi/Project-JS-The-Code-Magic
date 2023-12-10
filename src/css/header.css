@@ -1,21 +1,147 @@
-.header {
-  padding: 20px 0;
-}
+/*------------------------------------------Header------------------------------------------*/
 
-.nav-list {
+.link-logo {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+  gap: 8px;
+  font-family: 'Quincy CF';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: -0.02em;
 }
 
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+button {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
+svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-green);
+  border-radius: 50%;
+  fill: var(--color-background);
+}
+
+.header-logo-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.page-header {
+  padding-top: 18px;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-menu-button-home {
+  display: flex;
+  align-items: center;
+  color: var(--color-background);
+  font-size: 14px;
+  line-height: 1.29;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 10px 20px;
+  background-color: var(--color-green);
+}
+
+.header-menu-button-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 30px;
+  background: var(--color-green);
+}
+
+.header-menu-icon-cart {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-background);
+}
+
+/*------------------------------------------Media-Header------------------------------------------*/
+
+@media (min-width: 768px) {
+  .page-header {
+    padding-top: 24px;
+  }
+
+  .link-logo {
+    font-size: 24px;
+  }
+
+  .header-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-logo-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-menu {
+    gap: 16px;
+  }
+
+  .header-menu-cart {
+    font-size: 18px;
+  }
+
+  .header-menu-icon-cart {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    gap: 14px;
+  }
+
+  .header-menu-button-home {
+    font-size: 18px;
+    padding: 12px 28px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-menu {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-menu-cart {
+    display: none;
+  }
 }
