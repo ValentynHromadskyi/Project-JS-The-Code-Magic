@@ -1,35 +1,83 @@
-fetch('https://food-boutique.b.goit.study/api/products/discount')
-    .then(response => response.json())
-    .then(products => {
-    
-      const randomProducts = getRandomProducts(products, 2);
+function getRandomProducts(products, count) {
+  const shuffledProducts = products.sort(() => 0.5 - Math.random());
+  return shuffledProducts.slice(0, count);
+}
 
-      const productList = document.getElementById('productList');
-      randomProducts.forEach(product => {
-        productList.innerHTML += renderProductCard(product);
-      });
-    });
+import { getDiskountProduct } from './api';
 
-  function renderProductCard(product) {
+  function renderDiscountProductCard(product) {
     return `
       <div class="product-card">
         <div class="product-background">
+
+        <div class="discount-label">
+      <svg class="dicount-label-icon">
+      <use href="../icons.svg#icon-discount"></use>
+      </svg>
+      </div>
+
           <img src="${product.img}" alt="${product.name}" class="product-image">
         </div>
         <div class="product-details">
           <div class="details-text">
+
+          <div class="name-price">
           <h2 class="product-name">${product.name}</h2>
           <p class="product-price">$${product.price.toFixed(2)}</p>
           </div>
-          <svg class="cart-icon" width="34" height="34">
-            <use href="./src/icons.svg#icon-heroicons-solid_shopping-cart"></use>
+
+          <div class="discount-icon-cont">
+          <svg class="discount-icon" width="34" height="34">
+            <use href="../icons.svg#icon-heroicons-solid_shopping-cart"></use>
           </svg>
+          </div>
+
         </div>
       </div>
     `;
   }
   
-function getRandomProducts(array, number) {
-    const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, number);
+async function renderDiscountProducts() {
+  try {
+    const products = await getDiskountProduct();
+
+    // Перевірте, чи products - це масив
+    if (!Array.isArray(products)) {
+      console.error("Невірний формат даних: Очікувався масив.");
+      return;
+    }
+
+    // Перевірте, чи масив products не порожній
+    if (products.length === 0) {
+      console.warn("Немає доступних товарів зі знижкою.");
+      return;
+    }
+
+    const randomProducts = getRandomProducts(products, 2);
+    const discountContainer = document.getElementById('discountContainer');
+
+    const fragment = document.createDocumentFragment();
+    randomProducts.forEach(product => {
+      fragment.appendChild(renderDiscountProductCard(product));
+    });
+
+    discountContainer.appendChild(fragment);
+  } catch (error) {
+    console.error(error.message);
   }
+}
+
+// Fetch discount products and render them
+getDiskountProduct()
+  .then(response => response.data)
+  .then(products => {
+    const randomProducts = getRandomProducts(products, 2);
+    const discountContainer = document.getElementById('discountContainer');
+
+    randomProducts.forEach(product => {
+      discountContainer.innerHTML += renderDiscountProductCard(product);
+    });
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
