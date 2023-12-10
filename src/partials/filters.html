@@ -2,7 +2,7 @@
   <div class="container">
 <h2 class="filters-title">Filters:</h2>
 <div class="filters-forms-wrap">
-    <form class="fiters-form" autocomplete="off">
+    <form class="fiters-form" id="fiters-form" autocomplete="off">
       <input type="text" class="filters-input" name="search" placeholder="Search for anything" autofocus />
       <button type="submit" class="filters-bth">
         <svg class="search-icon" width="20" height="20">
@@ -11,9 +11,11 @@
       </button>
     </form>
     <div class="filters-categories-wrap">
-    <select class="filters-categories"></select>
+    <select class="filters-categories">
+      <option value=''>Categories</option>
+    </select>
     <svg class="filters-cat-icon" width="20" height="20">
-      <use href="./icons.svg#icon-chevron-down"></use>
+      <use href="./icons.svg#icon-doun"></use>
     </svg>
   </div>
   
@@ -28,7 +30,7 @@
         <option value="value7">Show all</option>
     </select>
     <svg class="filters-sort-icon" width="20" height="20">
-      <use href="./icons.svg#icon-chevron-down"></use>
+      <use href="./icons.svg#icon-doun"></use>
     </svg>
   </div>
 </div>
