@@ -8,7 +8,7 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', handleFiltersSubmit);
-
+loadCategories();
 async function loadCategories() {
   try {
     const categoriesList = await getProductsCategories();
@@ -16,7 +16,7 @@ async function loadCategories() {
     for (let i = 0; i < data.length; i++) {
       refs.filterCatList.insertAdjacentHTML(
         'beforeend',
-        `<option value="${data[i]}">${data[i]}</option>`
+        `<option  class="filters-categories-option" value="${data[i]}">${data[i]}</option>`
       );
     }
   } catch (error) {
@@ -24,7 +24,7 @@ async function loadCategories() {
   }
 }
 
- loadCategories();
+ 
 
 const localvalue = { keyword: null, category: null, page: 1, limit: 6 };
 

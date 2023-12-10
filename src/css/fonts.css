@@ -22,14 +22,11 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Quincy CF';
-  src: url('../QuincyCF-Black.eot');
+ @font-face {
+  font-family: 'QuincyCF-Black';
   src: local('Quincy CF Black'), local('QuincyCF-Black'),
-    url('../QuincyCF-Black.eot?#iefix') format('embedded-opentype'),
-    url('../QuincyCF-Black.woff2') format('woff2'),
-    url('../QuincyCF-Black.woff') format('woff'),
-    url('../QuincyCF-Black.ttf') format('truetype');
-  font-weight: 900;
+     url('../QuincyCF-Black.woff2') format('woff2'), 
+     url('../QuincyCF-Black.ttf') format('truetype'); 
+   font-weight: 900;
   font-style: normal;
-}
+}  

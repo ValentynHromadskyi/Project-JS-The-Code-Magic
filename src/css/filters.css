@@ -108,3 +108,9 @@
        top: 16px;
 }
 }
+
+.filters-categories option {
+ background-color: var(--color-background);
+
+}
+
