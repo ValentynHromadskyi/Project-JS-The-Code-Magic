@@ -11,7 +11,7 @@ refs.form.addEventListener('submit', handleFiltersSubmit);
 
 function loadCategories() {
   try {
-    const categoriesList = await getProductsCategories();
+    const categoriesList = getProductsCategories();
     const data = categoriesList.data;
     for (let i = 0; i < data.length; i++) {
       refs.filterCatList.insertAdjacentHTML(
@@ -24,7 +24,7 @@ function loadCategories() {
   }
 }
 
-await loadCategories();
+loadCategories();
 
 const localvalue = { keyword: null, category: null, page: 1, limit: 6 };
 
