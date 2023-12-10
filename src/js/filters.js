@@ -24,7 +24,7 @@ async function loadCategories() {
   }
 }
 
-await loadCategories();
+ loadCategories();
 
 const localvalue = { keyword: null, category: null, page: 1, limit: 6 };
 
