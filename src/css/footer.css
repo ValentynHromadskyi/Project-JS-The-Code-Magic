@@ -165,6 +165,14 @@ color: rgba(232, 232, 226, 0.60);
                 line-height: 18px;
 }
 
+.foot-sub-button:hover {
+    background-color: #ace8aca8;
+}
+
+.foot-sub-button:focus {
+    background-color: #8ce68ca8;
+}
+
 .footer-smal-text {
     display: inline-block;
         /* width: 335px; */
