@@ -73,7 +73,6 @@ export async function getFilteredProduct({
 }) {
     try {
         const params = new URLSearchParams({
-    keyword,
     category,
     byABC: byABC ? "true" : "false",
     byPrice: byPrice ? "true" : "false",
