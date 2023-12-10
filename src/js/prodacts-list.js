@@ -68,9 +68,28 @@ function renderProductCard(product) {
   `;
 }
 
+import { getFilteredProduct } from './api.js';
+
+const filters = JSON.parse(localStorage.getItem('filters'));
+console.log(filters);
+
+// Використовуйте async/await для чистішого синтаксису
+async function fetchData() {
+  try {
+    const product = await getFilteredProduct(filters);
+    console.log(product);
+  } catch (error) {
+    console.log('error', error);
+  }
+}
+
+// Викликайте функцію fetchData
+fetchData();
+  
+  
 async function fetchAndRenderProducts(page = 1) {
-  const keyword = 'Ac';
-  const category = 'Fresh_Produce';
+  const keyword = '';
+  const category = '';
   const limit = getLimit();
 
   try {
@@ -106,3 +125,4 @@ window.addEventListener('resize', fetchAndRenderProducts);
 var script = document.createElement('script');
 script.src = '/js/pagination.js';
 document.head.appendChild(script);
+
