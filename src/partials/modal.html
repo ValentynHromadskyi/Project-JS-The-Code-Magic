@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .modal {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+      display: none;
+      position: relative;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      color: #333;
+      font-size: 20px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .close-btn:hover {
+      color: #ff0000;
+    }
+
+    .add-to-cart-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="openModal()">Відкрити модальне вікно</button>
+
+<div id="myModal" class="modal">
+  <span class="close-btn" onclick="closeModal()">&times;</span>
+  <img src="path/to/product-image.jpg" alt="Product Image" style="max-width: 100%; height: auto;">
+  <h2>Назва продукту</h2>
+  <p>Категорія: Категорія продукту</p>
+  <p>Розмір пакування: Розмір пакування</p>
+  <p>Популярність: Показник популярності</p>
+  <p>Опис: Опис продукту</p>
+  <p>Вартість: $99.99</p>
+  <button id="addToCartBtn" class="add-to-cart-btn" onclick="addToCart()">Add to cart</button>
+</div>
+
+<script>
+  function openModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'block';
+
+    // Перевіряємо, чи продукт вже є в кошику
+    if (localStorage.getItem('productInCart')) {
+      document.getElementById('addToCartBtn').innerText = 'Remove from cart';
+    }
+
+    // Додаємо слухачів подій для закриття модального вікна
+    window.addEventListener('click', outsideClick);
+    window.addEventListener('keydown', onEscKeyPress);
+  }
+
+  function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+
+    // Видаляємо слухачів подій після закриття модального вікна
+    window.removeEventListener('click', outsideClick);
+    window.removeEventListener('keydown', onEscKeyPress);
+  }
+
+  function outsideClick(event) {
+    var modal = document.getElementById('myModal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+
+  function onEscKeyPress(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  }
+
+  function addToCart() {
+    var addToCartBtn = document.getElementById('addToCartBtn');
+
+    // Перевіряємо, чи продукт вже є в кошику
+    if (localStorage.getItem('productInCart')) {
+      // Видаляємо продукт з кошика
+      localStorage.removeItem('productInCart');
+      addToCartBtn.innerText = 'Add to cart';
+    } else {
+      // Додаємо продукт до кошика
+      localStorage.setItem('productInCart', 'true');
+      addToCartBtn.innerText = 'Remove from cart';
+    }
+  }
+</script>
+
+</body>
+</html>
