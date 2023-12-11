@@ -1,43 +1,55 @@
-const refs = {
-    cartBlock: document.querySelector(".js-cart-block"),
-    cartCounter: document.querySelector(".cart-counter"),
-    deleteAllBtn: document.querySelector(".delete-all-btn"),
-}
 
+
+// document.addEventListener('DOMContentLoaded', () => {
+    const refs = {
+        cartBlock: document.querySelector(".js-cart-block"),
+        cartCounter: document.querySelector("span#cart-counter"),
+        deleteAllBtn: document.querySelector(".delete-all-btn"),
+        cartDeleteAllBlock: document.querySelector(".cart-delete-all-section"),
+        cartListBlock: document.querySelector(".cart-list-block"),
+    }
+// });
+console.log(cartCounter);
 const STORAGE_KEY = "cart";
-
+let counter = 0;
 // локал сторидж
 export function saveDataInLS(data, key) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-const newProduct = {
-    _id: "640c2dd963a319ea671e383b",
-    }
+const newProduct = [{
+    _id: "640c2dd963a319ea671e37a9",
+}]
+    
 saveDataInLS(newProduct, STORAGE_KEY);
 
-
-// refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
-  
+cartUsage();
 
 // 1. руководство корзиной
- async function CartUsage() {
-    const cartArr = getDataFromLS(STORAGE_KEY);
-    
-    productQuantity(cartArr);
+ async function cartUsage() {
+    let cartArr = getDataFromLS(STORAGE_KEY);
+     console.log(cartArr.length);
+     counter = cartArr.length
+    refs.cartCounter.textContent = counter;
+    //  productQuantity(cartArr);
+     console.log(counter);
 
     if (!cartArr.length) {
         refs.cartBlock.innerHTML = createMarkupEmptyCart();
         return;
     }
-    renderCard();
-    
-}
+    renderCard(cartArr);
+    }
+
 function renderCard() {
+    cartDeleteAllBlock.insertAdjacentHTML("beforeend", createMarcupDeleteAllBtn());
+
     const cartList = document.createElement("ul");
         cartList.classList.add("cart-list");
         cartList.insertAdjacentHTML("beforeend", createMarkupCartList(cartArr));
-    // додати блок з кнопкою deleteAll
+   
 } 
+
+refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
 // 
 
 function getDataFromLS(key) {
@@ -52,9 +64,9 @@ function getDataFromLS(key) {
 
 // каунтер
 export function productQuantity(cartArr) {
-    return refs.cartCounter.forEach(item => item.textContent = cartArr.length);
+    refs.cartCounter.textContent = cartArr.length;
+    // return refs.cartCounter.forEach(item => item.textContent = cartArr.length);
 }
-
 
 
 // Видалення товарів з корзини
@@ -92,11 +104,21 @@ function createMarkupEmptyCart() {
     </div>`
 }
 
+// розмітка кнопки Delete all
+function createMarcupDeleteAllBtn() {
+    return `<p class="delete-all-text">Delete all</p>
+        <button type="button" class="delete-all-btn">
+          <svg class="delete-close-icon" width="13.5" height="13.5">
+            <use href="../img/cart/delete-btn.jpg"></use>
+          </svg>
+        </button>`
+}
+
 // розмітка картки товару
 function createMarkupCartList(arr) {
     return arr.map(
         ({ _id, name, img, category, price, size }) => `
-         <ul class="cart-list">
+         
          <li class="cart__products-item" data-id="${_id}">
                 <div class="cart__item-space">
                     <img src="${img}" alt="${name}" class="cart__item-img">
