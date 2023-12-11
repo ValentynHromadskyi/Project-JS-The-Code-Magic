@@ -1,4 +1,4 @@
-/**
+/*
   |============================
   | include css partials with
   | default @import url()
@@ -46,6 +46,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+
 /*-------CONTAINER  <= 374px-----------------*/
 @media screen and (max-width: 374px) {
   .container {
@@ -74,5 +76,14 @@ body {
   .container {
     max-width: 1240px;
   }
+  .main-wrap{
+    display: flex;
+    flex-direction: row;
+  }
+
+.popular-discount-wrap{
+  display: flex;
+  flex-direction: column;
+}
 }
 
