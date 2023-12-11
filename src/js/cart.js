@@ -1,3 +1,18 @@
+import { getProductById } from './api.js';
+// import { replaceUnderscoresWithSpaces } from './filters.js';
+
+const STORAGE_KEY = "cart";
+
+// запис ID в локал сторидж
+export function saveDataInLS(data, key) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+const newProduct = [{
+    id: "640c2dd963a319ea671e37a9",
+    pieces: "2", 
+}]
+    
+saveDataInLS(newProduct, STORAGE_KEY);
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -9,45 +24,56 @@
         cartListBlock: document.querySelector(".cart-list-block"),
     }
 // });
-console.log(cartCounter);
-const STORAGE_KEY = "cart";
-let counter = 0;
-// локал сторидж
-export function saveDataInLS(data, key) {
-    localStorage.setItem(key, JSON.stringify(data));
+refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
+
+// showBtnLoad()
+hideBtnLoad();
+// refs.cartDeleteAllBlock.style.display = "none";
+function hideBtnLoad() {
+  refs.cartDeleteAllBlock.setAttribute('hidden', '');
 }
-const newProduct = [{
-    _id: "640c2dd963a319ea671e37a9",
-}]
-    
-saveDataInLS(newProduct, STORAGE_KEY);
+
+function showBtnLoad() {
+  refs.cartDeleteAllBlock.removeAttribute('hidden', '');
+}
 
 cartUsage();
 
-// 1. руководство корзиной
+// використання корзини
  async function cartUsage() {
     let cartArr = getDataFromLS(STORAGE_KEY);
-     console.log(cartArr.length);
-     counter = cartArr.length
-    refs.cartCounter.textContent = counter;
-    //  productQuantity(cartArr);
-     console.log(counter);
+    console.log(cartArr.length);
+         
+    // каунтер - productQuantity(cartArr);
+    refs.cartCounter.textContent = cartArr.length;
 
-    if (!cartArr.length) {
+    if (cartArr.length === 0) {
         refs.cartBlock.innerHTML = createMarkupEmptyCart();
         return;
     }
-    renderCard(cartArr);
+    renderCards(cartArr);
     }
 
-function renderCard() {
-    cartDeleteAllBlock.insertAdjacentHTML("beforeend", createMarcupDeleteAllBtn());
+    function renderCards() {
+        let cartArr = getDataFromLS(STORAGE_KEY);
+        console.log(cartArr[0].id);
+        let id = cartArr[0].id; 
 
-    const cartList = document.createElement("ul");
-        cartList.classList.add("cart-list");
-        cartList.insertAdjacentHTML("beforeend", createMarkupCartList(cartArr));
-   
-} 
+        getProductById(id).then(response => {
+            console.log(response);
+            const cartId = renderProductCard(response);
+            console.log(cartId);
+            let result = replaceUnderscoresWithSpaces(cartId.category);
+            refs.cartListBlock.insertAdjacentHTML("beforeend", cartId);
+        }); 
+                
+        
+       
+        
+                    
+        }
+    
+    
 
 refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
 // 
@@ -55,7 +81,6 @@ refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
 function getDataFromLS(key) {
     try {
         const data = localStorage.getItem(key);
-
         return data ? JSON.parse(data) : [];
     } catch (error) {
         console.log(error.message);
@@ -70,7 +95,7 @@ export function productQuantity(cartArr) {
 
 
 // Видалення товарів з корзини
-  const deleteAllProducts = () => {
+  function deleteAllProducts() {
       localStorage.removeItem(STORAGE_KEY);
       refs.cartBlock.innerHTML = createMarkupEmptyCart();
       refs.cartCounter.forEach(item => item.textContent = 0);
@@ -113,54 +138,51 @@ function createMarcupDeleteAllBtn() {
           </svg>
         </button>`
 }
+//картка продукта
+function renderProductCard(data) {
+  return `
+    <div class="productlist-card" data-productlist-id="${data._id}">
+      <div class="productlist-background">
+        <img src="${data.img}" alt="${data.name}" class="product-image">
+      </div>
+      <div class="productlist-details">
+        <div class="productlist-details-text">
+          <h2 class="productlist-name">${data.name}</h2>
+          <div class="pl-det">
+          <div class="category-cont">
+          <p class="productlist-category">Category:
+          <span class="word">${result}</span></p>
+          <p class="productlist-size">Size:
+          <span class="word">${data.size}</span></p>
+          </div>
+          <div class="popularity-cont">
+          <p class="productlist-popularity">Popularity:
+          <span class="word">${data.popularity}</span></p>
+          </div>
+          </div>
+          <div class="price-icon">
+          
+
+          <div class="price-icon-cont">
+          <svg class="productlist-icon" width="18" height="18">
+            <use href="../icons.svg#icon-shopping-cart"></use>
+          </svg>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// iwuhfiuwe <p class="productlist-price">$${data.price.toFixed(1)}</p>
 
 // розмітка картки товару
 function createMarkupCartList(arr) {
     return arr.map(
         ({ _id, name, img, category, price, size }) => `
          
-         <li class="cart__products-item" data-id="${_id}">
-                <div class="cart__item-space">
-                    <img src="${img}" alt="${name}" class="cart__item-img">
-                </div>
-                <div class="cart__item-info">
-                    <h3 class="cart__item-title">${name}</h3>
-                    <ul class="cart__item-descr">
-                        <li class="cart__item">
-                            <p class="cart__item-name">Category:</p>
-                            <p class="cart__item-value">${normalizeCategory(
-                                category
-                            )}</p>
-                        </li>
-                        <li class="cart__item">
-                            <p class="cart__item-name">Size:</p>
-                            <p class="cart__item-value">${size}</p>
-                        </li>
-                    </ul> 
-                    <div class="cart__item-main">
-                        <span class="cart__item-price">$${price}</span>
-                        <div class="cart__item-quantity">
-                            <button class="cart__item-button">
-                                <svg class="cart__item-minus">
-                                    <use href="${icons}#icon-minus"></use>
-                                </svg>
-                            </button>
-                            <span class="cart__item-number">1</span>
-                            <button class="cart__item-button">
-                                <svg class="cart__item-minus">
-                                    <use href="${icons}#icon-plus"></use>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <button class="cart__item-close">
-                    <svg class="cart__item-icon">
-                        <use href="${icons}#icon-close"></use>
-                    </svg>
-                </button>
-            </li>
-            </ul>
+        
     `
         )
         .join('');
