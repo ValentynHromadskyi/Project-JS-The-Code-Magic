@@ -6,8 +6,17 @@ const refs = {
 
 const STORAGE_KEY = "cart";
 
+// локал сторидж
+export function saveDataInLS(data, key) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+const newProduct = {
+    _id: "640c2dd963a319ea671e383b",
+    }
+saveDataInLS(newProduct, STORAGE_KEY);
 
-refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
+
+// refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
   
 
 // 1. руководство корзиной
@@ -29,12 +38,7 @@ function renderCard() {
         cartList.insertAdjacentHTML("beforeend", createMarkupCartList(cartArr));
     // додати блок з кнопкою deleteAll
 } 
-
-
-// локал сторидж
-export function saveDataInLS(data, key) {
-    localStorage.setItem(key, JSON.stringify(data));
-}
+// 
 
 function getDataFromLS(key) {
     try {
