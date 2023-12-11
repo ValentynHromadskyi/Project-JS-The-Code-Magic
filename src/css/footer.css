@@ -8,6 +8,10 @@
                 margin-top: 80px;
 }
 
+.footer-parent-div {
+    margin-bottom: 80px;
+}
+
 /* LOGO */
 
 .footer-logo-div {
@@ -236,6 +240,7 @@ color: rgba(232, 232, 226, 0.60);
 
 .footer-parent-div {
     display: flex;
+    margin-bottom: 120px;
 }
 
 .footer-first-div {
@@ -308,6 +313,7 @@ font-size: 40px;
 
     .footer-parent-div {
         display: flex;
+        margin-bottom: 128px;
     }
 
     .footer-second-div {
