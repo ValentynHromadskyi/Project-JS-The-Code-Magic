@@ -32,6 +32,7 @@ const localvalue = { keyword: null, category: null, page: 1, limit: 6 };
 
 async function handleFiltersSubmit(event) {
   const filtersValue = refs.filtersInput.value;
+  console.log(filtersValue)
   localvalue.keyword = filtersValue;
   if (filtersValue === '') {
     localvalue.keyword = null;

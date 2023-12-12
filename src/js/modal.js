@@ -57,19 +57,19 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-document.addEventListener('click', function (e) {
-  if (!e.target.classList.contains('productlist-card')) {
-    return;
-  }
-  const id = e.target.dataset.productlistId;
+document.querySelectorAll('.productlist-card').forEach(el => {
+  el.addEventListener('click', function (e) {
+    if (el === e.target || el.contains(e.target)) {
+      const id = el.dataset.productlistId;
 
-  if (localStorage.getItem(id)) {
-    getProduct(id, 'Remove from');
-  } else {
-    getProduct(id, 'Add to');
-  }
-
-  openModal();
+      if (localStorage.getItem(id)) {
+        getProduct(id, 'Remove from');
+      } else {
+        getProduct(id, 'Add to');
+      }
+      openModal();
+    }
+  });
 });
 
 function windowOnClick(event) {
