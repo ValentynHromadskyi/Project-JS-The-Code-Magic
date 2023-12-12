@@ -102,7 +102,104 @@
     display: block;
 }
 
+.your-order-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    text-transform: uppercase;
+    padding: auto;
+   
+} 
 
+.cart-total-order {
+    margin-top: 80px;
+}
+.your-order-block {
+    margin-top: 40px;
+}
+.cart-total-price {
+    display: flex;
+    padding: 14px 18px;
+    justify-content: space-between;
+    align-items: end;
+    background-color: rgba(109, 132, 52, 0.05);
+    width: 335px;
+    height: 60px;
+    border-radius: 8px;
+}
+.cart-total-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+}
+.cart-sum {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+}
+.span-sum {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    text-transform: uppercase; 
+    margin-left: 4px;
+}
+
+.cart-checkout-form {
+    display: flex;
+    margin-top: 30px;
+   flex-direction: column;
+}
+
+.cart-label {
+    display: flex;
+    padding: 12px 183px 12px 20px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.3);
+    width: 335px;
+    background-color: transparent;
+    height: 42px;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+.cart-placeholder {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    color: #01010150;
+}
+
+.cart-input {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+.cart-input::placeholder {
+    color: #010101;
+}
+
+.cart-button-submit {
+    margin-top: 14px;
+    display: flex;
+    padding: 12px 138px 12px 138px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.3);
+    background-color: #6D8434;
+    color: #E8E8E2;
+    width: 335px;
+    height: 42px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+}
 /* <-----------ПЛАНШЕТ-------------------> */
 
 @media screen and (min-width: 768px) {

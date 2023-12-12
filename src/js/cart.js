@@ -25,7 +25,7 @@ saveDataInLS(newProduct, STORAGE_KEY);
         cartDeleteAllBlock: document.querySelector(".cart-delete-all-section"),
         cartListBlock: document.querySelector(".cart-list-block"),
         cartEmptyCart: document.querySelector(".cart-empty-cart"),
-        yourOrderPrice: document.querySelector(".your-order-price"),
+        yourOrderPrice: document.querySelector(".cart-total-price"),
         spanYourOrderPrice: document.querySelector("span#your-order-total-price"),
     }
 
