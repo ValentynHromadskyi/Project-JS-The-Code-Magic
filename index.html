@@ -59,97 +59,105 @@
 
     
     <main>
-           <!-- Evelina -->
-       <section class="cart">
+        <!-- Ольга Романенко  -->
+        <section class="hero">
   <div class="container">
-    <div class="cart-title-block">
-      <div class="cart-title-icon">
-        <svg class="cart-title-icon-svg" width="18" height="18">
-          <use href="/Project-JS-The-Code-Magic/assets/icons-fa1f684b.svg#icon-heroicons-solid_shopping-cart"></use>
-        </svg>
-      </div>
-      <div class="cart-title">
-        <h2 class="cart-title-text">cart(<span id="cart-counter">0</span>)</h2>
-      </div>
+    <h1 class="hero-title">
+      Welcome to the <span class="hero-title-accent">Food</span> Boutique!
+    </h1>
+    <p class="hero-text">
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+    <div class="hero-img">
+      <img
+        class="hero-organic-label"
+        srcset="/Project-JS-The-Code-Magic/assets/hero_organic_food_label_1x-342387f2.png 1x, /Project-JS-The-Code-Magic/assets/hero_organic_food_label_2x-7e45b461.png 2x"
+        src="/src/img/hero/hero_organic_food_label_1x.png"
+        alt="label organic food"
+      />
     </div>
-
-    <div class="js-cart-block">
-      <!-- блок delete all (hidden) -->
-      <div class="cart-delete-all-section">
-        <p class="delete-all-text">Delete all</p>
-        <button type="button" class="delete-all-btn">
-          <svg class="delete-close-icon">
-            <use href="../icons.svg#icon-close"></use>
-          </svg>
-        </button>
-      </div>
-
-      <!-- пуста корзина -->
-      <div class="cart-list-block"></div>
-      <div class="your-order-block">
-        <div class="your-order-price">
-          <p class="your-order-text">
-            Sum:<span id="your-order-total-price"></span>
-          </p>
-        </div>
-      </div>
-      <div class="cart-empty-cart">
-        <div class="cart-img-empty-cart">
-          <img
-            class="img-shopping-cart"
-            src="/Project-JS-The-Code-Magic/assets/yellow-shopping-basket-e7d97901.png"
-            width="132"
-            height="114"
-          />
-        </div>
-        <div class="cart-text">
-          <p class="cart-text-empty">
-            Your basket is <span class="cart-text-span">empty...</span>
-          </p>
-          <p class="cart-all-text">
-            Go to the main page to select your favorite <br />
-            products and add them to the cart.
-          </p>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- Розмітка для JS -->
-
-<!-- це треба видалити, в джеес не пійде -->
-<!-- <section class="cart">
+        <!-- Валентин Громадський -->
+        <section class="filters section">
   <div class="container">
-    <div class="cart-title-block">
-      <div class="cart-title-icon">
-        <svg class="cart-title-icon-svg" width="18" height="18">
-          <use href="../icons.svg#icon-heroicons-solid_shopping-cart"></use>
+<h2 class="filters-title">Filters:</h2>
+<div class="filters-forms-wrap">
+    <form class="fiters-form" id="fiters-form" autocomplete="off">
+      <input type="text" class="filters-input" name="search" placeholder="Search for anything" autofocus />
+      <button class="filters-bth">
+        <svg class="search-icon" width="20" height="20">
+          <use href="/Project-JS-The-Code-Magic/assets/icons-fa1f684b.svg#icon-search"></use>
         </svg>
-      </div>
-      <div class="cart-title">
-        <h2 class="cart-title-text">cart(0)</h2>
-      </div>
-    </div>
-    <div class="js-cart-block">
-      <div class="cart-delete-all-section">
-        <p class="delete-all-text">Delete all</p>
-        <button type="button" class="delete-all-btn">
-          <svg class="delete-close-icon" width="13.5" height="13.5">
-            <use href="../img/cart/delete-btn.jpg"></use>
-          </svg>
-        </button>
-      </div>
-      <div class
-    </div>
+      </button>
+    </form>
+    <div class="filters-categories-wrap">
+    <select class="filters-categories" placeholder="Categories">
+      <option value=''>Show all</option>
+    </select>
+    <svg class="filters-cat-icon" width="20" height="20">
+      <use href="/Project-JS-The-Code-Magic/assets/icons-fa1f684b.svg#icon-doun"></use>
+    </svg>
   </div>
-  <div class="cart-products"></div> -->
+  
+  <div class="filters-sorting-wrap">
+    <select class="filters-sorting">
+        <option value="value1">A to Z</option>
+        <option value="value2">Z to A</option>
+        <option value="value3">Cheap</option>
+        <option value="value4">Expensive</option>
+        <option value="value5">Popular</option>
+        <option value="value6">Not popular</option>
+        <option value="value7">Show all</option>
+    </select>
+    <svg class="filters-sort-icon" width="20" height="20">
+      <use href="/Project-JS-The-Code-Magic/assets/icons-fa1f684b.svg#icon-doun"></use>
+    </svg>
+  </div>
+</div>
+</div>
+</section>
+        <div class="main-wrap container">
+          <!-- Kateryna Drozd -->
+          <section id="productlist" class="productlist-container container">
 
-<!-- це треба видалити -->
-<!-- </div>
-</section> -->
-<!-- </section> -->
+    <div id="productList" class="productlist"></div>
 
+    <div id="pagination">
+        <svg class="btn-left">
+            <use href="../icons.svg#icon-caret-small-left"></use>
+        </svg>
+        <div id="btn-numbers" class="btn-numbers"></div>
+        <svg class="btn-right">
+            <use href="../icons.svg#icon-caret-small-right"></use>
+        </svg>
+    </div>
+
+    <script src="/src/js/prodacts-list.js" type="text"></script>
+    <script src="/src/js/pagination.js" type="text"></script>
+</section>
+          <div class="popular-discount-wrap">
+            <!-- Garry Kovalli -->
+            <section id="popularity" class="popular-container container">
+  <h2 class="popular-title">Popular products</h2>
+
+  <div id="popularContainer" class="popular"></div>
+
+  <!-- <script src="/src/js/discount.js" type="text"></script> -->
+</section>
+
+            <!-- Kateryna Drozd -->
+            <section id="discount" class="discount-container container">
+    <h2 class="discount-title">Discount products</h2>
+
+    <div id="discountContainer" class="discount"></div>
+
+    <script src="/src/js/discount.js" type="text"></script>
+</section>
+          </div>
+        </div>
     </main>
 
     <!-- Vladislav -->
@@ -229,7 +237,9 @@
         </div>
     </section>
 </div>
-
+    <!-- Evelina -->
+    
+   
     <div class="modal">
   <div class="modal-container">
     <button class="close-button">
@@ -242,9 +252,7 @@
   </div>
 </div>
 
- 
-  
-   
+
 
     
   </body>
