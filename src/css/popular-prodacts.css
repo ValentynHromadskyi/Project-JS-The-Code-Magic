@@ -51,7 +51,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.17em;
-  /*margin-bottom: 9px;*/
+  display: flex;
+  gap: 4px;
 }
 .popular {
   display: flex;
@@ -81,7 +82,7 @@
   font-size: 12px;
   gap: 9px;
   color: darkgray;
-  width: 152px;
+  width: 154px;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
@@ -122,7 +123,7 @@
   .popular-name {
     font-size: 20px;
     line-height: 1.2em;
-    /*margin-bottom: 12px;*/
+    margin-bottom: 12px;
   }
 }
 
@@ -136,5 +137,10 @@
     gap: 14px;
     padding-left: 1065px;
     padding-right: 100px;
+  }
+  .popular-name {
+    font-size: 20px;
+    line-height: 1.2em;
+    margin-bottom: 10px;
   }
 }
