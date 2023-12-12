@@ -14,8 +14,8 @@
   />
     
     <script type="module" crossorigin src="/Project-JS-The-Code-Magic/assets/vendor-a61d8330.js"></script>
-    <script type="module" crossorigin src="/Project-JS-The-Code-Magic/assets/modal-14c3fd16.js"></script>
-    <link rel="stylesheet" href="/Project-JS-The-Code-Magic/assets/modal-f086c8a4.css">
+    <script type="module" crossorigin src="/Project-JS-The-Code-Magic/assets/modal-0ae0a5d6.js"></script>
+    <link rel="stylesheet" href="/Project-JS-The-Code-Magic/assets/modal-8e6827cb.css">
   </head>
   <body>
     <!--Dmytro Yuryk -->
@@ -87,7 +87,7 @@
 <div class="filters-forms-wrap">
     <form class="fiters-form" id="fiters-form" autocomplete="off">
       <input type="text" class="filters-input" name="search" placeholder="Search for anything" autofocus />
-      <button type="submit" class="filters-bth">
+      <button class="filters-bth">
         <svg class="search-icon" width="20" height="20">
           <use href="/Project-JS-The-Code-Magic/assets/icons-fa1f684b.svg#icon-search"></use>
         </svg>
@@ -125,7 +125,15 @@
 
     <div id="productList" class="productlist"></div>
 
-    <div id="pagination"></div>
+    <div id="pagination">
+        <svg class="btn-left">
+            <use href="../icons.svg#icon-caret-small-left"></use>
+        </svg>
+        <div id="btn-numbers" class="btn-numbers"></div>
+        <svg class="btn-right">
+            <use href="../icons.svg#icon-caret-small-right"></use>
+        </svg>
+    </div>
 
     <script src="/src/js/prodacts-list.js" type="text"></script>
     <script src="/src/js/pagination.js" type="text"></script>
