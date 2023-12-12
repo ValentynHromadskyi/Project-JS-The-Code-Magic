@@ -16,30 +16,39 @@
       <div class="cart-delete-all-section">
         <p class="delete-all-text">Delete all</p>
         <button type="button" class="delete-all-btn">
-          <svg class="delete-close-icon" width="13.5" height="13.5">
-            <use href="../img/cart/delete-btn.jpg"></use>
+          <svg class="delete-close-icon">
+            <use href="../icons.svg#icon-close"></use>
           </svg>
         </button>
       </div>
 
       <!-- пуста корзина -->
       <div class="cart-list-block"></div>
-      <div class="cart-img-empty-cart">
-        <img
-          class="img-shopping-cart"
-          src="./img/cart/yellow-shopping-basket.png"
-          width="132"
-          height="114"
-        />
+      <div class="your-order-block">
+        <div class="your-order-price">
+          <p class="your-order-text">
+            Sum:<span id="your-order-total-price"></span>
+          </p>
+        </div>
       </div>
-      <div class="cart-text">
-        <p class="cart-text-empty">
-          Your basket is <span class="cart-text-span">empty...</span>
-        </p>
-        <p class="cart-all-text">
-          Go to the main page to select your favorite <br />
-          products and add them to the cart.
-        </p>
+      <div class="cart-empty-cart">
+        <div class="cart-img-empty-cart">
+          <img
+            class="img-shopping-cart"
+            src="./img/cart/yellow-shopping-basket.png"
+            width="132"
+            height="114"
+          />
+        </div>
+        <div class="cart-text">
+          <p class="cart-text-empty">
+            Your basket is <span class="cart-text-span">empty...</span>
+          </p>
+          <p class="cart-all-text">
+            Go to the main page to select your favorite <br />
+            products and add them to the cart.
+          </p>
+        </div>
       </div>
     </div>
   </div>

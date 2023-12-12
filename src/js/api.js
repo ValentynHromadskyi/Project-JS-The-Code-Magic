@@ -14,8 +14,7 @@ export async function getProductsCategories() {
         console.log(error.message);
     }
 }
-// --перевірка запита
-// getProductsCategories().then(categories => console.log(categories));
+
 
 // Детальна інформація про продукт (ID)
 
@@ -28,9 +27,6 @@ export async function getProductById(id) {
         console.log(error.message);
     }
 }
-// --перевірка запита
-// let productId = "640c2dd963a319ea671e3676";
-// getProductById(productId).then(product => console.log(product));
 
 // Перелік популярних продуктів
 
@@ -43,8 +39,7 @@ export async function getPopularProduct() {
         console.log(error.message);
     }
 }
-// --перевірка запита
-// getPopularProduct().then(product => console.log(product));
+
 
 // Перелік продуктів зі знижкою
 
@@ -57,8 +52,7 @@ export async function getDiskountProduct() {
         console.log(error.message);
     }
 }
-// --перевірка запита
-// getDiskountProduct().then(product => console.log(product));
+
 
 // Перелік продуктів з фільтрацією
 
@@ -90,17 +84,7 @@ export async function getFilteredProduct({
         console.log(error.message);
     }
 }
-// --перевірка запита
-// const filters = {
-//     category: "Fresh_Produce",
-//     byABC: true,
-//     byPrice: false,
-//     byPopularity: false,
-//     page: 1,
-//     limit: 6,
-// }
 
-// getFilteredProduct(filters).then(product => console.log(product));
 
 // Оформлення підписки на розсилку нових продуків
 
@@ -112,8 +96,7 @@ export async function postSubscription(data) {
     const response = await axios.post(`${BASE_URL}/subscription`, data);
     return response.data;
 } 
-// --перевірка запита
-// postSubscription(emailToAdd).then(data => console.log(data)).catch(error => console.log(error.message));
+
 
 // Оформлення замовлення продуктів
 
@@ -121,13 +104,4 @@ export async function postOrders(data) {
     const response = await axios.post(`${BASE_URL}/orders`, data);
     return response.data;
 }
-// --перевірка запита
-// const orderToAdd = {
-//     email: "ssss@Comment.ua",
-//     products: [{
-//         "productId": "640c2dd963a319ea671e383b",
-//         "amount": 2
-//         }]
-//     };
-// postOrders(orderToAdd).then(data => console.log(data)); 
 

@@ -64,24 +64,42 @@
     font-size: 14px;
     line-height: 1.28;
 }
-
-
-/* -------------стилі для JS---------------- */
-.delete-all-section {
+.cart-delete-all-section {
     display: flex;
     justify-content: end;
     align-items: center;
     margin-top: 14px;
     gap: 8px;
 }
+
 .delete-all-text {
     font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: 14px;
+    line-height: 1.28;
 }
-
+.delete-all-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
 .delete-close-icon {
     fill: #010101;
+    width: 13.5px;
+    height: 13.5px;
+}
+.productlist-category {
+    display: flex;
+    gap: 5px;
+}
+.productlist-size {
+    display: flex;
+    gap: 5px;
+}
+.category-cont {
+    display: block;
 }
 
 
@@ -114,11 +132,6 @@
         line-height: 1.33;
     }
 
-
-        .cart-delete-all-section {
-            margin-top: 26px;
-            gap: 8px;
-        }
 
 }
 
