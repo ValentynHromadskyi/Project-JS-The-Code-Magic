@@ -1,9 +1,7 @@
 import { getFilteredProduct } from "./api";
 
-
-
-
 // функція для отримання продуктів з сервера
+
 async function getProductsList(keyword, category, page = 1, limit = 6) {
   const url = `https://food-boutique.b.goit.study/api/products?keyword=${keyword}&category=${category}&page=${page}&limit=${limit}`;
 
@@ -32,7 +30,6 @@ function getLimit() {
 }
 
 //картка продукта
-
 
 function renderProductCard(data) {
   return `
@@ -73,50 +70,20 @@ function renderProductCard(data) {
   `;
 }
   
-const refs = {
-  filterCatList: document.querySelector('.filters-categories'),
-  form: document.getElementById('fiters-form'),
-  filtersInput: document.querySelector('.filters-input'),
-  filtersCategories: document.querySelector('.filters-categories'),
-};
-
-refs.filterCatList.addEventListener("change", changeFilter)
-
-
-async function changeFilter(event) {
-  let category = event.target.value;
-  const filters = {
-    category: category,
-    byABC: true,
-    byPrice: false,
-    byPopularity: false,
-    page: 1,
-    limit: 6,
-  };
-
-  try {
-    const result = await getFilteredProduct(filters);
-    const data = result.results
-
-    console.log(data);
-
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
-
-    data.forEach(product => {
-      productList.innerHTML += renderProductCard(product);
-    });
-
-    const totalPages = Math.ceil(result.total / filters.limit);
-    renderPagination(totalPages, filters.page);
-  } catch (error) {
-    console.error('Произошла ошибка:', error);
-  }
-}
   
+const storage = localStorage.getItem("filters")
+const parstedStorage=JSON.parse(storage)
+console.log(parstedStorage)
+
 async function fetchAndRenderProducts(page = 1) {
-  const keyword = '';
-  const category = '';
+  let keyword = parstedStorage.keyword;
+  if (parstedStorage.keyword === null) {
+    keyword=''
+  }
+  let category = parstedStorage.category;
+  if (parstedStorage.category === null) {
+    category=''
+  }
   const limit = getLimit();
 
   try {
@@ -130,7 +97,9 @@ async function fetchAndRenderProducts(page = 1) {
       productList.innerHTML += renderProductCard(product);
     });
 
-    const totalPages = Math.ceil(response.total / limit);
+    const totalPages = Math.ceil(products.length / limit);
+
+    console.log(totalPages)
     renderPagination(totalPages, page);
   } catch (error) {
     console.error('Помилка:', error);
@@ -144,9 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // функция для смены страницы
 window.changePage = function(page) {
   fetchAndRenderProducts(page);
+  console.log(page)
 };
 
 window.addEventListener('resize', fetchAndRenderProducts);
+
+
 
 // подключение файла пагинации
 var script = document.createElement('script');
