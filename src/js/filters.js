@@ -9,14 +9,18 @@ const refs = {
 
 refs.form.addEventListener('submit', handleFiltersSubmit);
 loadCategories();
+
 async function loadCategories() {
   try {
     const categoriesList = await getProductsCategories();
     const data = categoriesList.data;
     for (let i = 0; i < data.length; i++) {
+      // заміна "_" на " "
+      let result = replaceUnderscoresWithSpaces(data[i]);
+
       refs.filterCatList.insertAdjacentHTML(
         'beforeend',
-        `<option  class="filters-categories-option" value="${data[i]}">${data[i]}</option>`
+        `<option  class="filters-categories-option" value="${result}">${result}</option>`
       );
     }
   } catch (error) {
@@ -24,12 +28,11 @@ async function loadCategories() {
   }
 }
 
- 
-
 const localvalue = { keyword: null, category: null, page: 1, limit: 6 };
 
 async function handleFiltersSubmit(event) {
   const filtersValue = refs.filtersInput.value;
+  console.log(filtersValue)
   localvalue.keyword = filtersValue;
   if (filtersValue === '') {
     localvalue.keyword = null;
@@ -58,4 +61,9 @@ function changeForm() {
   const filtersParce = JSON.parse(localStorage.getItem('filters'));
   refs.filtersInput.value = filtersParce.keyword;
   refs.filtersCategories.value = filtersParce.category;
+}
+
+export function replaceUnderscoresWithSpaces(inputString) {
+  let outputString = inputString.replace(/_/g, ' ');
+  return outputString;
 }

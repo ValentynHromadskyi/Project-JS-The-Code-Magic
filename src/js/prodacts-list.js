@@ -1,3 +1,5 @@
+import { getFilteredProduct } from "./api";
+
 // функція для отримання продуктів з сервера
 
 async function getProductsList(keyword, category, page = 1, limit = 6) {
@@ -29,33 +31,33 @@ function getLimit() {
 
 //картка продукта
 
-function renderProductCard(product) {
+function renderProductCard(data) {
   return `
-    <div class="productlist-card" data-productlist-id="${product._id}">
+    <div class="productlist-card" data-productlist-id="${data._id}">
       <div class="productlist-background">
-        <img src="${product.img}" alt="${product.name}" class="product-image">
+        <img src="${data.img}" alt="${data.name}" class="product-image">
       </div>
       <div class="productlist-details">
         <div class="productlist-details-text">
-          <h2 class="productlist-name">${product.name}</h2>
+          <h2 class="productlist-name">${data.name}</h2>
           <div class="pl-det">
           
           <div class="category-cont">
           <p class="productlist-category">Category:
-          <span class="word">${product.category}</span></p>
+          <span class="word">${data.category}</span></p>
 
           <p class="productlist-size">Size:
-          <span class="word">${product.size}</span></p>
+          <span class="word">${data.size}</span></p>
           </div>
 
           <div class="popularity-cont">
           <p class="productlist-popularity">Popularity:
-          <span class="word">${product.popularity}</span></p>
+          <span class="word">${data.popularity}</span></p>
           </div>
 
           </div>
           <div class="price-icon">
-          <p class="productlist-price">$${product.price.toFixed(2)}</p>
+          <p class="productlist-price">$${data.price.toFixed(2)}</p>
           <div class="price-icon-cont">
           <svg class="productlist-icon" width="18" height="18">
             <use href="../icons.svg#icon-shopping-cart"></use>
@@ -67,10 +69,21 @@ function renderProductCard(product) {
     </div>
   `;
 }
+  
+  
+const storage = localStorage.getItem("filters")
+const parstedStorage=JSON.parse(storage)
+console.log(parstedStorage)
 
 async function fetchAndRenderProducts(page = 1) {
-  const keyword = 'Ac';
-  const category = 'Fresh_Produce';
+  let keyword = parstedStorage.keyword;
+  if (parstedStorage.keyword === null) {
+    keyword=''
+  }
+  let category = parstedStorage.category;
+  if (parstedStorage.category === null) {
+    category=''
+  }
   const limit = getLimit();
 
   try {
@@ -84,7 +97,9 @@ async function fetchAndRenderProducts(page = 1) {
       productList.innerHTML += renderProductCard(product);
     });
 
-    const totalPages = Math.ceil(response.total / limit);
+    const totalPages = Math.ceil(products.length / limit);
+
+    console.log(totalPages)
     renderPagination(totalPages, page);
   } catch (error) {
     console.error('Помилка:', error);
@@ -98,11 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // функция для смены страницы
 window.changePage = function(page) {
   fetchAndRenderProducts(page);
+  console.log(page)
 };
 
 window.addEventListener('resize', fetchAndRenderProducts);
+
+
 
 // подключение файла пагинации
 var script = document.createElement('script');
 script.src = '/js/pagination.js';
 document.head.appendChild(script);
+
