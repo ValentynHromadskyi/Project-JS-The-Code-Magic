@@ -94,7 +94,7 @@
     max-width: 704px;
   }
   .popular-container {
-    width: 563px;
+    /*width: 563px;*/
     /*height: 320px;*/
     display: inline-flex;
     flex-direction: column;
@@ -128,9 +128,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
+  /*.container {
     min-width: 1240px;
-  }
+  }*/
   .popular-container {
     display: flex;
     flex-direction: column;
@@ -142,5 +142,8 @@
     font-size: 20px;
     line-height: 1.2em;
     margin-bottom: 10px;
+  }
+  .popular {
+    flex-direction: column;
   }
 }
