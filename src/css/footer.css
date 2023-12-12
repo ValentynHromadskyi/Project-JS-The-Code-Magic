@@ -516,6 +516,8 @@ font-size: 40px;
     max-height: 135px;
     bottom: 0%;
     right: 0%;
+    border-radius: 18.966px;
+        background: url(<path-to-image>), lightgray 307.296px -0.293px / 63.93% 111.375% no-repeat;
 }
 
 .modal-img {
@@ -592,4 +594,8 @@ font-size: 40px;
         padding-right: 80px;
         padding-bottom: 5px;
     }
+}
+
+.modal-backdrop {
+    background: rgba(1, 1, 1, 0.40);
 }
