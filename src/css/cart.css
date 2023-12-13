@@ -358,73 +358,37 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
-        .cart-background {
-            width: 120px;
-            height: 120px;
+    .cart-background {
+        width: 120px;
+        height: 120px;
                     
-        }
+    }
     
-        .cart-image {
-            width: 72px;
-            height: 72px;
+    .cart-image {
+        width: 72px;
+        height: 72px;
            
         }
     
-        .cart-details {
-            width: 512px;
-            height: 120px;
-            padding-left: 40px;
-        }
-        .cart-close-icon {
+    .cart-details {
+        width: 512px;
+        height: 120px;
+        padding-left: 40px;
+    }
+    .cart-details-text {
+        margin-bottom: 44px;
+}
+    .cart-close-icon {
             width: 512px;
         }
 
-        .cart-delete-all-section {
-   width: 672px;
-    margin-top: 14px;
-    gap: 8px;
+    .cart-delete-all-section {
+        width: 672px;
+        margin-top: 14px;
+        gap: 8px;
 }
 
-.card-delete-close-icon {
-    fill: #010101;
-    width: 10.12px;
-    height: 10.12px;
-    
-}
-.card-delete-all-btn {
-    display: flex;
-    width: 18px;
-    height: 18px;
-    align-items: flex-start;
-    justify-content: center;
-}
-.cart-pl-det {
-    display: flex;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.16;
-    width: 194px;  
-}
-.cart-word {
-    margin-right: 8px;
-    color: #010101;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.16;
-}
-.cart-category {
-    color: #01010130;
-}
-.cart-size {
-    color: #01010130;
-    
-}
-.cart-price {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.28;
-}
- 
+
 
 }
 
@@ -441,5 +405,23 @@
     .img-shopping-cart {
         margin-top: 150px;
     }
-    
+    .js-cart-block {
+        display: flex;
+        flex-direction: row;
+    }
+    .cart-delete-all-section {
+        width: 500px;
+        /* margin-top: 14px;
+        gap: 8px; */
+    }
+    .cart-card {
+        width: 500px;
+        height: 200px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .cart-details {
+        width: 340px;
+        padding-left: 40px;
+    }
 } 
