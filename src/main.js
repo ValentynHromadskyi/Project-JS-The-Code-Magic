@@ -1,13 +1,13 @@
 import './js/footer';
 import './js/header';
 import './js/hero';
-// import './js/filters';
+import './js/filters';
 import './js/prodacts-list';
 import './js/popular-prodacts';
 import './js/discount';
 import './js/api';
 import './js/modal';
-import './js/cart';
+// import './js/cart';
 
 
 
@@ -43,7 +43,7 @@ waitForElements('.inBascet')
                     id: e.currentTarget.id,
                     pieces: "1",
                 }
-                console.log(id);
+                // console.log(id);
                 // localStorage.setItem('data', JSON.stringify(id));
                 
 
