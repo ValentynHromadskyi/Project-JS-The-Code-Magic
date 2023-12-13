@@ -1,7 +1,7 @@
 import './js/footer';
 import './js/header';
 import './js/hero';
-// import './js/filters';
+import './js/filters';
 import './js/prodacts-list';
 import './js/popular-prodacts';
 import './js/discount';
