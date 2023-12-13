@@ -79,7 +79,7 @@ function renderProductCard(data) {
           <p class="productlist-price">$${data.price.toFixed(2)}</p>
           <div id="${data._id}" class="price-icon-cont inBascet">
           <svg class="productlist-icon" width="18" height="18">
-            <use href="../icons.svg#icon-shopping-cart"></use>
+            <use href="./icons.svg#icon-shopping-cart"></use>
           </svg>
           </div>
           </div>

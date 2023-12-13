@@ -12,7 +12,7 @@ import { getDiskountProduct } from './api';
 
         <div class="discount-label">
       <svg class="dicount-label-icon">
-      <use href="../icons.svg#icon-discount"></use>
+      <use href="./icons.svg#icon-discount"></use>
       </svg>
       </div>
 
@@ -28,7 +28,7 @@ import { getDiskountProduct } from './api';
 
           <div class="discount-icon-cont">
           <svg class="discount-icon" width="34" height="34">
-            <use href="../icons.svg#icon-heroicons-solid_shopping-cart"></use>
+            <use href="./icons.svg#icon-heroicons-solid_shopping-cart"></use>
           </svg>
           </div>
 
