@@ -11,10 +11,11 @@ function renderPagination(totalPages, currentPage) {
     paginationCont.appendChild(pageNumber);
     
     // Добавляем обработчик события click для каждого элемента pageNumber
-    pageNumber.addEventListener('click', function() {
+    pageNumber.addEventListener('click', function () {
       changePage(i);
     });
   }
+}
 
   // for (let i = 1; i <= totalPages; i++) {
   // const pageNumber = document.createElement("span");
@@ -63,59 +64,4 @@ function renderPagination(totalPages, currentPage) {
   //     changePage(i);
   //   });
   //   }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   // const paginationContainer = document.getElementById('pagination');
-
-//   // if (totalPages <= 1) {
-//   //   paginationContainer.style.display = 'none';
-//   //   return;
-//   // }
-
-//   // paginationContainer.style.display = 'block';
-
-
-  // // // кнопка назад
-  //   if (currentPage !== 1) {
-  // paginationContainer.innerHTML += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})">
-  //   <svg class="pagination-icon">
-  //     <use href="../icons.svg#icon-caret-small-left"></use>
-  //   </svg>
-  // </button>`;
   // }
-
-  // // Render page numbers or ellipses
-  // for (let i = 1; i <= totalPages; i++) {
-  //   paginationContainer.innerHTML += `<span>${i}</span>`
-  // }
-    
-  
-
-  // // кнопка вперед
-  //   paginationContainer.innerHTML += `<button class="pagination-btn${currentPage === totalPages ? ' disabled' : ''}" onclick="changePage(${currentPage + 1})">
-  //   <svg class="pagination-icon">
-  //   <use href="../icons.svg#icon-caret-small-right"></use>
-  //   </svg>
-  //   </button>`;
-// }
-
