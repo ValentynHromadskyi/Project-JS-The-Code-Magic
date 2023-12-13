@@ -144,7 +144,6 @@
     } 
     .pl-det {
         display: flex;
-        flex-direction: column;
     }
     .category-cont {
         display: flex;
