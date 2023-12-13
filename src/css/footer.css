@@ -523,6 +523,8 @@ font-size: 40px;
 
 .modal-img {
     border-radius: 19px;
+    background: #E8E8E2;
+
 }
 
 @media (min-width: 375px) {
