@@ -105,14 +105,18 @@ async function renderCards() {
 };
 
 // refs.cardDeleteOneBtn.addEventListener("click", deleteOneProduct);
- deleteOneProduct();
+ deleteOneProduct("640c2dd963a319ea671e3860");
 // Видалення ОДНОГО товар з корзини
  function deleteOneProduct(id) {
    let cartArr = getDataFromLS(STORAGE_KEY);
+   console.log(cartArr);
+  //  let cartArrChanged = 
+
    let productIndex = cartArr.findIndex(item => item.id === id);
    console.log(productIndex);
    if (productIndex !== -1) {
-      cartArr.splice(productIndex, 1);
+     console.log(cartArr.splice(productIndex, 1));
+     console.log(cartArr);
       saveDataInLS(cartArr, STORAGE_KEY);
       refs.cartListBlock.innerHTML = "";
       renderCards(cartArr);
