@@ -56,23 +56,16 @@ function renderPagination(totalPages, currentPage) {
   paginationCont.innerHTML = ''; // Очистка содержимого контейнера перед добавлением новых элементов
 
   for (let i = 1; i <= totalPages; i++) {
-    // function renderNumberCard(number) {
-    //   return `
-    // <div id="btn-numbers" class="btn-numbers"><span>${number}</span></div>`
-    // }
 
     const pageNumber = document.createElement("span");
     pageNumber.classList.add("page-number");
-    let pageNumber = i;
     pageNumber.textContent = i;
     paginationCont.appendChild(pageNumber);
     
-    Добавляем обработчик события click для каждого элемента pageNumber
+    // Добавляем обработчик события click для каждого элемента pageNumber
     pageNumber.addEventListener('click', function() {
       changePage(i);
     });
-
-    renderNumberCard(i);
   }
 
   // for (let i = 1; i <= totalPages; i++) {
