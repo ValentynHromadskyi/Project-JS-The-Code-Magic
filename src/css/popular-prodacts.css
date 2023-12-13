@@ -118,6 +118,7 @@
     font-size: 28px;
     line-height: 1.14em;
     margin-bottom: 20px;
+    white-space: nowrap;
   }
   .popular-name {
     font-size: 20px;
