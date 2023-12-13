@@ -65,7 +65,7 @@ const handleSubscription = async email => {
     const body = { email };
 
     try {
-        const checkedEmail = await postSubscription(body);
+        const emailToAdd = await postSubscription(body);
 
         openModalSub();
         footerForm.reset();
@@ -82,7 +82,7 @@ function handleSubmit(e) {
     e.preventDefault();
     const inputEmail = document.querySelector('.form-filed');
     const email = inputEmail.ariaValueMax.trim();
-    handleSubmit(email);
+    handleSubscription(email);
 } 
 
 function closeModalOption() {
