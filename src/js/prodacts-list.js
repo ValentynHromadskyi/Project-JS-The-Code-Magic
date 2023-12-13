@@ -1,5 +1,8 @@
 import { getFilteredProduct } from "./api";
 
+import { replaceUnderscoresWithSpaces } from './filters';
+
+
 // функція для отримання продуктів з сервера
 
 async function getProductsList(keyword, category, page = 1, limit = 6) {
@@ -32,6 +35,7 @@ function getLimit() {
 //картка продукта
 
 function renderProductCard(data) {
+  let result = replaceUnderscoresWithSpaces(data.category);
   return `
     <div class="productlist-card" data-productlist-id="${data._id}">
       <div class="productlist-background">
@@ -44,7 +48,7 @@ function renderProductCard(data) {
           
           <div class="category-cont">
           <p class="productlist-category">Category:
-          <span class="word">${data.category}</span></p>
+          <span class="word">${result}</span></p>
 
           <p class="productlist-size">Size:
           <span class="word">${data.size}</span></p>
@@ -70,10 +74,8 @@ function renderProductCard(data) {
   `;
 }
   
-  
 const storage = localStorage.getItem("filters")
-const parstedStorage=JSON.parse(storage)
-console.log(parstedStorage)
+const parstedStorage = JSON.parse(storage)
 
 async function fetchAndRenderProducts(page = 1) {
   let keyword = parstedStorage.keyword;
@@ -99,7 +101,6 @@ async function fetchAndRenderProducts(page = 1) {
 
     const totalPages = Math.ceil(products.length / limit);
 
-    console.log(totalPages)
     renderPagination(totalPages, page);
   } catch (error) {
     console.error('Помилка:', error);
