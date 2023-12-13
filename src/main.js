@@ -9,8 +9,6 @@ import './js/api';
 import './js/modal';
 import './js/cart';
 
-
-
 function waitForElements(selector) {
     return new Promise((resolve, reject) => {
         const elements = document.querySelectorAll(selector);
@@ -45,16 +43,16 @@ waitForElements('.inBascet')
                 }
                 console.log(id);
                 // localStorage.setItem('data', JSON.stringify(id));
-                
+
 
                 let myArray = JSON.parse(localStorage.getItem('cart')) || [];
 console.log(myArray);
                 // Об'єкт, який потрібно додати до масиву
                 const newCart = { id: e.currentTarget.id, pieces: '1' };
-                
+
                 // Додавання нового об'єкта до масиву
                 myArray.push(newCart);
-                
+
                 // Оновлення масиву об'єктів у localStorage
                 localStorage.setItem('cart', JSON.stringify(myArray));
 
