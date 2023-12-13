@@ -79,7 +79,7 @@ function renderProductCard(data) {
           <p class="productlist-price">$${data.price.toFixed(2)}</p>
           <div id="${data._id}" class="price-icon-cont inBascet">
           <svg class="productlist-icon" width="18" height="18">
-            <use href="./icons.svg#icon-shopping-cart"></use>
+            <use href="/icons.svg#icon-shopping-cart"></use>
           </svg>
           </div>
           </div>
@@ -97,7 +97,12 @@ async function fetchAndRenderProducts(page = 1) {
   if (parstedStorage.keyword === null) {
     keyword=''
   }
-  let category = parstedStorage.category;
+
+
+  let categoryLine = parstedStorage.category;
+  const category = underline(categoryLine)
+console.log(category);
+
   if (parstedStorage.category === null) {
     category=''
   }
@@ -147,3 +152,8 @@ var script = document.createElement('script');
 script.src = '/js/pagination.js';
 document.head.appendChild(script);
 
+
+
+function underline(inputString) {
+  let outputString = inputString.replace(/ /g, '_');
+  return outputString;}

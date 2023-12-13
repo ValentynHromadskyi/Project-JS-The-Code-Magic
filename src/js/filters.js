@@ -8,6 +8,7 @@
   };
   if (refs.form) {
   refs.form.addEventListener('submit', handleFiltersSubmit);}
+  
   loadCategories();
 
   async function loadCategories() {

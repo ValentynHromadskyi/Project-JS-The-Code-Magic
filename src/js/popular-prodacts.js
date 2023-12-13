@@ -32,9 +32,9 @@ function renderPopularProductCard(product) {
 
            <div class="popularname-price">
            </div>
-          <div class="popular-icon-cont">
+           <div id="${product._id}" class="popular-icon-cont inBascet">
             <svg class="popular-icon" width="12" height="12">
-              <use href="../icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
+              <use href="./icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
             </svg>
           </div>
         </div>

@@ -7,7 +7,7 @@ import './js/popular-prodacts';
 import './js/discount';
 import './js/api';
 import './js/modal';
-// import './js/cart';
+import './js/cart';
 
 function waitForElements(selector) {
     return new Promise((resolve, reject) => {
