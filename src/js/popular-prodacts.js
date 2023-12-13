@@ -4,8 +4,9 @@ function getRandomProducts(products, count) {
 }
 
 import { getPopularProduct } from './api';
-
+import { replaceUnderscoresWithSpaces } from './filters';
 function renderPopularProductCard(product) {
+  let result = replaceUnderscoresWithSpaces(product.category);
   return `
       <div class="popular-card">
        <div class="popular-background">
@@ -18,7 +19,7 @@ function renderPopularProductCard(product) {
 
           <div class="category-cont">
           <p class="popular-text">Category:
-          <span class="word">${product.category}</span></p>
+          <span class="word">${result}</span></p>
 
           <p class="popular-text">Size:
           <span class="word">${product.size}</span></p>
