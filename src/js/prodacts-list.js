@@ -74,10 +74,8 @@ function renderProductCard(data) {
   `;
 }
   
-  
 const storage = localStorage.getItem("filters")
-const parstedStorage=JSON.parse(storage)
-console.log(parstedStorage)
+const parstedStorage = JSON.parse(storage)
 
 async function fetchAndRenderProducts(page = 1) {
   let keyword = parstedStorage.keyword;
@@ -103,7 +101,6 @@ async function fetchAndRenderProducts(page = 1) {
 
     const totalPages = Math.ceil(products.length / limit);
 
-    console.log(totalPages)
     renderPagination(totalPages, page);
   } catch (error) {
     console.error('Помилка:', error);
