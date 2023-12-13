@@ -98,9 +98,9 @@ async function fetchAndRenderProducts(page = 1) {
     keyword=''
   }
 
-
+  // let category = parstedStorage.category;
   let categoryLine = parstedStorage.category;
-  const category = underline(categoryLine)
+  let category = underline(categoryLine)
 console.log(category);
 
   if (parstedStorage.category === null) {
