@@ -7,16 +7,16 @@ const STORAGE_KEY = "cart";
 export function saveDataInLS(data, key) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-const newProduct = [{
-    id: "640c2dd963a319ea671e37a9",
-    pieces: "2", 
-},
-{
-    id: "640c2dd963a319ea671e3860",
-    pieces: "1", 
-}]
+// const newProduct = [{
+//     id: "640c2dd963a319ea671e37a9",
+//     pieces: "2", 
+// },
+// {
+//     id: "640c2dd963a319ea671e3860",
+//     pieces: "1", 
+// }]
     
-saveDataInLS(newProduct, STORAGE_KEY);
+// saveDataInLS(newProduct, STORAGE_KEY);
 
     const refs = {
         cartBlock: document.querySelector(".js-cart-block"),
@@ -105,7 +105,7 @@ async function renderCards() {
 };
 
 // refs.cardDeleteOneBtn.addEventListener("click", deleteOneProduct);
- deleteOneProduct("640c2dd963a319ea671e3860");
+ deleteOneProduct();
 // Видалення ОДНОГО товар з корзини
  function deleteOneProduct(id) {
    let cartArr = getDataFromLS(STORAGE_KEY);
@@ -189,7 +189,7 @@ function renderProductCard(data) {
           <h2 class="cart-name">${data.name}</h2>
           <button type="button" class="card-delete-all-btn">
           <svg class="card-delete-close-icon">
-            <use href="../icons.svg#icon-close-mini"></use>
+            <use href="./icons.svg#icon-close-mini"></use>
           </svg>
         </button>
           </div>
