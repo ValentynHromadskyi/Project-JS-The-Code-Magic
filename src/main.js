@@ -7,7 +7,7 @@ import './js/popular-prodacts';
 import './js/discount';
 import './js/api';
 import './js/modal';
-import './js/cart';
+// import './js/cart';
 
 function waitForElements(selector) {
     return new Promise((resolve, reject) => {
@@ -41,7 +41,7 @@ waitForElements('.inBascet')
                     id: e.currentTarget.id,
                     pieces: "1",
                 }
-                console.log(id);
+                // console.log(id);
                 // localStorage.setItem('data', JSON.stringify(id));
 
 

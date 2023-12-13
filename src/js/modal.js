@@ -1,16 +1,41 @@
 import { getProductById } from './api.js';
 
+const refs = {
+  cart: document.querySelector('.productlist-card'),
+ };
+
+
 export function addToCart(id) {
   try {
-    if (localStorage.getItem(id)) {
-      localStorage.removeItem(id);
-    } else {
-      localStorage.setItem(id, JSON.stringify(id));
-    }
+    console.log(id);
+    // if (localStorage.getItem(id)) {
+    //   localStorage.removeItem(id);
+    // } else {
+    //   localStorage.setItem(id, JSON.stringify(id));
+    // }
+
+    let myArray = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log(myArray);
+                    // Об'єкт, який потрібно додати до масиву
+                    const newCart = { id: id, pieces: '1' };
+                    
+                    // Додавання нового об'єкта до масиву
+                    myArray.push(newCart);
+                    
+                    // Оновлення масиву об'єктів у localStorage
+                    localStorage.setItem('cart', JSON.stringify(myArray));
+
+
+
+
   } catch (e) {
     console.log(e);
   }
 }
+
+
+
+
 
 async function getProduct(id, btn) {
   const modalContent = document.querySelector('.modal-content');
@@ -57,21 +82,6 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-document.querySelectorAll('.productlist-card').forEach(el => {
-  el.addEventListener('click', function (e) {
-    if (el === e.target || el.contains(e.target)) {
-      const id = el.dataset.productlistId;
-
-      if (localStorage.getItem(id)) {
-        getProduct(id, 'Remove from');
-      } else {
-        getProduct(id, 'Add to');
-      }
-      openModal();
-    }
-  });
-});
-
 function windowOnClick(event) {
   if (event.target === modal) {
     closeModal();
@@ -94,3 +104,48 @@ document.addEventListener('click', function (e) {
   e.target.addEventListener('click', addToCart(id));
   e.target.addEventListener('click', closeModal());
 });
+
+
+function waitForElements(selector) {
+  return new Promise((resolve, reject) => {
+      const elements = document.querySelectorAll(selector);
+
+      if (elements.length > 0) {
+          resolve(elements);
+      } else {
+          const observer = new MutationObserver(() => {
+              const updatedElements = document.querySelectorAll(selector);
+              if (updatedElements.length > 0) {
+                  observer.disconnect();
+                  resolve(updatedElements);
+              }
+          });
+
+          observer.observe(document.documentElement, {
+              childList: true,
+              subtree: true
+          });
+      }
+  });
+}
+
+{/* // Очікуємо на появу всіх елементів з класом inBascet */}
+waitForElements('.productlist-card')
+  .then((elements) => {
+      elements.forEach((element) => {
+          element.addEventListener('click', (e) => {
+            const id=e.currentTarget.dataset.productlistId;
+            if (localStorage.getItem(id)) {
+              getProduct(id, 'Remove from');
+            } else {
+              getProduct(id, 'Add to');
+            }
+          
+            openModal();
+           
+          });
+      });
+  })
+  .catch((error) => {
+      console.error(error.message);
+  });
