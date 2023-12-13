@@ -46,19 +46,21 @@
 }
 
 .product-details {
-    margin-top: 23px;
+    margin-top: 16px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    
 }
 
 .details-text {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .name-price {
@@ -97,7 +99,7 @@
     height: 60px;
     position: absolute;
     right: -10px;
-    top: -12px;
+    top: -10px;
 }
 
 .discount-icon {
@@ -142,5 +144,11 @@
 
     .product-details {
         width: fit-content;
-    }
+    }    
+           .name-price {
+               display: flex;
+               justify-content: space-between;
+               width: 200px;
+               margin-right: 8px;
+           }
 }

@@ -152,9 +152,22 @@
     }
 }
 
+.cont-pag {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 40px;
+} 
+
 #pagination {
     display: flex;
     align-items: center;
+}
+
+.btn-left,
+.btn-right {
+    cursor: pointer;
+    fill: #A3A3A3;
 }
 
 .page-number {
@@ -166,9 +179,16 @@
     justify-content: center;
     transition: .2s;
     cursor: pointer;
+    color: #A3A3A3;
+    font-size: 14px;
 }
 
 .page-number:hover {
+    background: #6D8434;
+    color: #E8E8E2;
+}
+
+.page-number.active {
     background: #6D8434;
     color: #E8E8E2;
 }
