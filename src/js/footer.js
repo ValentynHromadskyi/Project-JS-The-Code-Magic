@@ -53,13 +53,6 @@ const openModalUnsubscription = () => {
     body.style.overflow = 'hidden';
 };
 
-function showError() {
-  Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Something went wrong!',
-  });
-}
 
 const handleSubscription = async email => {
     const body = { email };
