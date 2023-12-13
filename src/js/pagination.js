@@ -3,9 +3,11 @@ const PAGE_SIZE = 6;
 function renderPagination(totalPages, currentPage) {
   
   const paginationCont = document.getElementById('btn-numbers');
-paginationCont.innerHTML = ''; // Очистка содержимого контейнера перед добавлением новых элементов
+  paginationCont.innerHTML = ''; // Очистка содержимого контейнера перед добавлением новых элементов
 
-for (let i = 1; i <= totalPages; i++) {
+  
+
+  for (let i = 1; i <= 6; i++) {
   const pageNumber = document.createElement("span");
   pageNumber.classList.add("page-number");
   
@@ -14,15 +16,18 @@ for (let i = 1; i <= totalPages; i++) {
   } else if (i === 5) {
     pageNumber.textContent = "...";
     pageNumber.classList.add("dots");
+  } else {
+    pageNumber.textContent = 6;
   }
   
   paginationCont.appendChild(pageNumber);
   
   // Добавляем обработчик события click для каждого элемента pageNumber
-  if (i <= 4) {
+  if (i <= 4 || i === 6) {
     pageNumber.addEventListener('click', function() {
       changePage(i);
     });
+    }
   }
 }
 
@@ -46,19 +51,17 @@ for (let i = 1; i <= totalPages; i++) {
 
 
 
+//   // const paginationContainer = document.getElementById('pagination');
+
+//   // if (totalPages <= 1) {
+//   //   paginationContainer.style.display = 'none';
+//   //   return;
+//   // }
+
+//   // paginationContainer.style.display = 'block';
 
 
-  // const paginationContainer = document.getElementById('pagination');
-
-  // if (totalPages <= 1) {
-  //   paginationContainer.style.display = 'none';
-  //   return;
-  // }
-
-  // paginationContainer.style.display = 'block';
-
-
-  // // кнопка назад
+  // // // кнопка назад
   //   if (currentPage !== 1) {
   // paginationContainer.innerHTML += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})">
   //   <svg class="pagination-icon">
@@ -80,5 +83,5 @@ for (let i = 1; i <= totalPages; i++) {
   //   <use href="../icons.svg#icon-caret-small-right"></use>
   //   </svg>
   //   </button>`;
-}
+// }
 
