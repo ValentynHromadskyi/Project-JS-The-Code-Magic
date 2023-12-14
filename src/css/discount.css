@@ -1,5 +1,5 @@
 .discount-container {
-    padding: 40px 20px;
+    padding: 40px 20px 0;
 }
 
 .discount {
@@ -111,6 +111,14 @@
         max-width: 704px;
     }
 
+    .discount-container{
+        padding: 40px 20px 0 0;
+        
+    }
+
+    .discount-title{
+        font-size: 28px;}
+
     .discount {
         display: flex;
         flex-direction: row;
@@ -123,6 +131,12 @@
     .container {
         max-width: 1240px;
     }
+
+    .discount-container{
+        padding: 40px 20px 0 40px
+    }
+
+
 
     .discount {
         flex-direction: column;

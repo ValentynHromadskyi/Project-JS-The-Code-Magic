@@ -1,6 +1,6 @@
 /*----------   Mobil ------------- */
 container {
-    max-width: 335px;
+    /* max-width: 335px; */
 }
 
 .hero-title{
@@ -62,6 +62,7 @@ flex-shrink: 0;
 right: 8px;
 top:-7px;
 }
+
 
 /* -----------Tablet--------------- */
 

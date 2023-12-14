@@ -147,6 +147,7 @@
     }
     .productlist {
          gap: 20px;
+         row-gap: 40px;
     } 
     .pl-det {
         display: block;
