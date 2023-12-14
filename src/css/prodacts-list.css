@@ -105,6 +105,8 @@
 
 .productlist-icon {
     fill: #f4f4fd;
+    width: 18px;
+    height: 18px;
 }
 
 .cat-cont {
@@ -147,6 +149,7 @@
     }
     .productlist {
          gap: 20px;
+         row-gap: 40px;
     } 
     .pl-det {
         display: block;

@@ -20,21 +20,22 @@ function renderPopularProductCard(product) {
           <div class="category-cont">
           <p class="popular-text">Category:
           <span class="word">${result}</span></p>
-
+<ul class="pop-text-two-cat">
+<li class="pop-text-size-pop">
           <p class="popular-text">Size:
-          <span class="word">${product.size}</span></p>
+          <span class="word">${product.size}</span></p></li>
           
 
-          
+          <li>
           <p class="popular-text">Popularity:
-          <span class="word">${product.popularity}</span></p>
+          <span class="word">${product.popularity}</span></p></li></ul>
           </div>
 
            <div class="popularname-price">
            </div>
            <div id="${product._id}" class="popular-icon-cont inBascet">
             <svg class="popular-icon" width="12" height="12">
-              <use href="./icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
+              <use href="/icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
             </svg>
           </div>
         </div>

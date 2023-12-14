@@ -380,7 +380,7 @@ font-size: 40px;
 
 /*================= MODAL ICON STYLE ==========*/
 
-.modal-subscription {
+/* .modal-subscription {
     opacity: 0;
     transform: scale(0.8);
     transition: all 300ms ease-in-out;
@@ -390,7 +390,8 @@ font-size: 40px;
     opacity: 0;
     transform: scale(0.8);
     transition: all 300ms ease-in-out;
-}
+} */
+
 
 .visible-modal {
     transform: scale(1);
@@ -522,6 +523,8 @@ font-size: 40px;
 
 .modal-img {
     border-radius: 19px;
+    background: #E8E8E2;
+
 }
 
 @media (min-width: 375px) {
