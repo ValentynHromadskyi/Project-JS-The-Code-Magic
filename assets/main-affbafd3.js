@@ -183,4 +183,4 @@ import{a as f}from"./vendor-a61d8330.js";(function(){const e=document.createElem
       </div>
     </div>
   `}function m1(t){return t.replace(/_/g," ")}function g1(t){return new Promise((e,o)=>{const r=document.querySelectorAll(t);if(r.length>0)e(r);else{const s=new MutationObserver(()=>{const c=document.querySelectorAll(t);c.length>0&&(s.disconnect(),e(c))});s.observe(document.documentElement,{childList:!0,subtree:!0})}})}g1(".inBascet").then(t=>{t.forEach(e=>{e.addEventListener("click",o=>{o.currentTarget.id;let r=JSON.parse(localStorage.getItem("cart"))||[];console.log(r);const s={id:o.currentTarget.id,pieces:"1"};r.push(s),localStorage.setItem("cart",JSON.stringify(r))})})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=main-3e43ca95.js.map
+//# sourceMappingURL=main-affbafd3.js.map
