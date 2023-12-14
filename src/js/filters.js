@@ -5,9 +5,11 @@
     form: document.getElementById('fiters-form'),
     filtersInput: document.querySelector('.filters-input'),
     filtersCategories: document.querySelector('.filters-categories'),
-  };
+};
+
   if (refs.form) {
-  refs.form.addEventListener('submit', handleFiltersSubmit);}
+    refs.form.addEventListener('submit', handleFiltersSubmit);
+  }
   
   loadCategories();
 
@@ -17,11 +19,11 @@
       const data = categoriesList.data;
       for (let i = 0; i < data.length; i++) {
         // заміна "_" на " "
-        let result = replaceUnderscoresWithSpaces(data[i]);
+        // let result = replaceUnderscoresWithSpaces(data[i]);
 
         refs.filterCatList.insertAdjacentHTML(
           'beforeend',
-          `<option class="filters-categories-option" value="${result}">${result}</option>`
+          `<option class="filters-categories-option" value="${data[i]}">${data[i]}</option>`
         );
       }
     } catch (error) {

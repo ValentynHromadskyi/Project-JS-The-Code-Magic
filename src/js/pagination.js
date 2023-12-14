@@ -1,67 +1,39 @@
 function renderPagination(totalPages, currentPage) {
-
   const paginationCont = document.getElementById('btn-numbers');
   paginationCont.innerHTML = ''; // Очистка содержимого контейнера перед добавлением новых элементов
 
-  for (let i = 1; i <= totalPages; i++) {
+  const pagesPerView = 5; // Количество отображаемых цифр в поле зрения
 
+  let startPage = Math.max(currentPage - Math.floor(pagesPerView / 2), 1);
+  let endPage = Math.min(startPage + pagesPerView - 1, totalPages);
+
+  if (endPage - startPage + 1 < pagesPerView) {
+    startPage = Math.max(endPage - pagesPerView + 1, 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
     const pageNumber = document.createElement("span");
     pageNumber.classList.add("page-number");
     pageNumber.textContent = i;
     paginationCont.appendChild(pageNumber);
-    
+
     // Добавляем обработчик события click для каждого элемента pageNumber
     pageNumber.addEventListener('click', function () {
       changePage(i);
     });
   }
+
+  const btnLeft = document.getElementById('btn-left');
+  btnLeft.addEventListener('click', function () {
+    if (currentPage > 1) {
+      changePage(currentPage - 1);
+    }
+  });
+
+  const btnRight = document.getElementById('btn-right');
+  btnRight.addEventListener('click', function () {
+    if (currentPage < totalPages) {
+      changePage(currentPage + 1);
+    }
+  });
 }
-
-  // for (let i = 1; i <= totalPages; i++) {
-  // const pageNumber = document.createElement("span");
-  // pageNumber.classList.add("page-number");
-  
-    // if (i === 1 && currentPage > 4) {
-    //   pageNumber.textContent = '...';
-    //   pageNumber.classList.add('dots');
-    // } else if (i === currentPage) {
-    //   pageNumber.textContent = currentPage;
-    //   pageNumber.classList.add('active');
-    // } else if (i === currentPage + 1 && currentPage < totalPages) {
-    //   pageNumber.textContent = currentPage + 1;
-    // } else if (i === currentPage - 1 && currentPage > 1) {
-    //   pageNumber.textContent = currentPage - 1;
-    // } else {
-    //   pageNumber.textContent = i;
-    // }
-    
-
-  // for (let i = 1; i <= totalPages; i++) {
-  //   const pageNumber = document.createElement("span");
-  //   pageNumber.classList.add("page-number");
-  //   pageNumber.textContent = i;
-
-  //   paginationCont.appendChild(pageNumber);
-    
-  //   pageNumber.addEventListener('click', )
-  // }
-  
-  // if (i <= 4) {
-  //   pageNumber.textContent = i;
-  // } else if (i === 5) {
-  //   pageNumber.textContent = "...";
-  //   pageNumber.classList.add("dots");
-  // } else {
-  //   pageNumber.textContent = i;
-  // }
-  
- 
-
-  
-  // Добавляем обработчик события click для каждого элемента pageNumber
-  // if (i <= 4 || i === totalPages) {
-  //   pageNumber.addEventListener('click', function() {
-  //     changePage(i);
-  //   });
-  //   }
-  // }
