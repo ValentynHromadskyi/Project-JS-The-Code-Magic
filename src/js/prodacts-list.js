@@ -2,6 +2,9 @@ import { getFilteredProduct } from "./api";
 
 import { replaceUnderscoresWithSpaces } from './filters';
 
+var script = document.createElement('script');
+script.src = '../js/pagination.js';
+document.head.appendChild(script);
 
 // функція для отримання продуктів з сервера
 
@@ -144,9 +147,9 @@ window.addEventListener('resize', fetchAndRenderProducts);
 
 
 // подключение файла пагинации
-var script = document.createElement('script');
-script.src = '../js/pagination.js';
-document.head.appendChild(script);
+// var script = document.createElement('script');
+// script.src = '../js/pagination.js';
+// document.head.appendChild(script);
 
 
 // function underline(inputString) {
