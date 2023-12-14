@@ -1,3 +1,14 @@
+.js-cart-block {
+    display: block;
+    flex-direction: column;
+}
+.cart-list-block {
+    max-height: 550px;
+    /* Наприклад, встановіть фіксовану висоту для контейнера */
+    overflow-y: auto;
+    /* Додайте вертикальний скролл, якщо контейнер переповнюється */
+}
+
 .cart-title-block {
     display: flex;
     padding-top: 72px;
@@ -400,7 +411,7 @@
     }
     .cart-title-block {
         padding-top: 81px;
-        margin-left: 100px;
+        /* margin-left: 100px; */
     }
     .img-shopping-cart {
         margin-top: 150px;
@@ -408,6 +419,7 @@
     .js-cart-block {
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
     .cart-delete-all-section {
         width: 500px;
@@ -424,4 +436,26 @@
         width: 340px;
         padding-left: 40px;
     }
+    .cart-empty-cart {
+        display: none;
+        /* margin-left: 400px; */
+        /* display: block;
+        align-items: center;
+        justify-content: center; */
+    }
+    .cart-img-empty-cart {
+        display: none;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* margin-left: 427px; */
+}
+.cart-total-order {
+    margin-top: 80px;
+    margin-left: 80px;
+}
+.cart-close-icon {
+    width: 340px;
+}
+
 } 

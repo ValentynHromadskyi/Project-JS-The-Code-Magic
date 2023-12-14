@@ -2,40 +2,26 @@ import { getProductById } from './api.js';
 
 const refs = {
   cart: document.querySelector('.productlist-card'),
- };
-
+};
 
 export function addToCart(id) {
   try {
     console.log(id);
-    // if (localStorage.getItem(id)) {
-    //   localStorage.removeItem(id);
-    // } else {
-    //   localStorage.setItem(id, JSON.stringify(id));
-    // }
 
     let myArray = JSON.parse(localStorage.getItem('cart')) || [];
     console.log(myArray);
-                    // Об'єкт, який потрібно додати до масиву
-                    const newCart = { id: id, pieces: '1' };
-                    
-                    // Додавання нового об'єкта до масиву
-                    myArray.push(newCart);
-                    
-                    // Оновлення масиву об'єктів у localStorage
-                    localStorage.setItem('cart', JSON.stringify(myArray));
+    // Об'єкт, який потрібно додати до масиву
+    const newCart = { id: id, pieces: '1' };
 
+    // Додавання нового об'єкта до масиву
+    myArray.push(newCart);
 
-
-
+    // Оновлення масиву об'єктів у localStorage
+    localStorage.setItem('cart', JSON.stringify(myArray));
   } catch (e) {
     console.log(e);
   }
 }
-
-
-
-
 
 async function getProduct(id, btn) {
   const modalContent = document.querySelector('.modal-content');
@@ -105,47 +91,85 @@ document.addEventListener('click', function (e) {
   e.target.addEventListener('click', closeModal());
 });
 
-
 function waitForElements(selector) {
   return new Promise((resolve, reject) => {
-      const elements = document.querySelectorAll(selector);
+    const elements = document.querySelectorAll(selector);
 
-      if (elements.length > 0) {
-          resolve(elements);
-      } else {
-          const observer = new MutationObserver(() => {
-              const updatedElements = document.querySelectorAll(selector);
-              if (updatedElements.length > 0) {
-                  observer.disconnect();
-                  resolve(updatedElements);
-              }
-          });
+    if (elements.length > 0) {
+      resolve(elements);
+    } else {
+      const observer = new MutationObserver(() => {
+        const updatedElements = document.querySelectorAll(selector);
+        if (updatedElements.length > 0) {
+          observer.disconnect();
+          resolve(updatedElements);
+        }
+      });
 
-          observer.observe(document.documentElement, {
-              childList: true,
-              subtree: true
-          });
-      }
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
   });
 }
 
-{/* // Очікуємо на появу всіх елементів з класом inBascet */}
-waitForElements('.productlist-card')
-  .then((elements) => {
-      elements.forEach((element) => {
-          element.addEventListener('click', (e) => {
-            const id=e.currentTarget.dataset.productlistId;
-            if (localStorage.getItem(id)) {
-              getProduct(id, 'Remove from');
-            } else {
-              getProduct(id, 'Add to');
-            }
-          
-            openModal();
-           
-          });
+{
+  /* // Очікуємо на появу всіх елементів з класом modalOn */
+}
+waitForElements('.modalOn')
+  .then(elements => {
+    elements.forEach(element => {
+      element.addEventListener('click', e => {
+        const id = e.currentTarget.dataset.productlistId;
+        if (localStorage.getItem(id)) {
+          getProduct(id, 'Remove from');
+        } else {
+          getProduct(id, 'Add to');
+        }
+
+        openModal();
       });
+    });
   })
-  .catch((error) => {
-      console.error(error.message);
+  .catch(error => {
+    console.error(error.message);
+  });
+
+waitForElements('.modalOndisc')
+  .then(elements => {
+    elements.forEach(element => {
+      element.addEventListener('click', e => {
+        const id = e.currentTarget.dataset.productlistId;
+        if (localStorage.getItem(id)) {
+          getProduct(id, 'Remove from');
+        } else {
+          getProduct(id, 'Add to');
+        }
+
+        openModal();
+      });
+    });
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
+
+waitForElements('.modalOpopul')
+  .then(elements => {
+    elements.forEach(element => {
+      element.addEventListener('click', e => {
+        const id = e.currentTarget.dataset.productlistId;
+        if (localStorage.getItem(id)) {
+          getProduct(id, 'Remove from');
+        } else {
+          getProduct(id, 'Add to');
+        }
+
+        openModal();
+      });
+    });
+  })
+  .catch(error => {
+    console.error(error.message);
   });

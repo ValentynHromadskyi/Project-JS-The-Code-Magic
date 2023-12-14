@@ -8,8 +8,28 @@
 };
 
   if (refs.form) {
+    refs.form.addEventListener('input', handleFiltersSubmit);
+  }
+
+  if (refs.form) {
     refs.form.addEventListener('submit', handleFiltersSubmit);
   }
+    
+ // if (refs.filtersInput) {
+  //   refs.filtersInput.addEventListener('input', handleInput);
+  // }
+  
+  // function handleInput(event) {
+  //   // Ваш код для обробки введення користувача тут
+  //   console.log('Input value:', event.target.value);
+  //   // Якщо потрібно щось змінити в сховищі, ви можете зробити це тут
+  // }
+
+
+
+
+
+
   
   loadCategories();
 
