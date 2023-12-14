@@ -12,7 +12,7 @@ import { getDiskountProduct } from './api';
 
         <div class="discount-label">
       <svg class="dicount-label-icon">
-      <use href="../icons.svg#icon-discount"></use>
+      <use href="./icons.svg#icon-discount"></use>
       </svg>
       </div>
 
@@ -25,10 +25,10 @@ import { getDiskountProduct } from './api';
           <h2 class="product-name">${product.name}</h2>
           <p class="product-price">$${product.price.toFixed(2)}</p>
           </div>
-
-          <div class="discount-icon-cont">
+          
+          <div id="${product._id}" class="discount-icon-cont inBascet">
           <svg class="discount-icon" width="34" height="34">
-            <use href="../icons.svg#icon-heroicons-solid_shopping-cart"></use>
+            <use href="/icons.svg#icon-heroicons-solid_shopping-cart"></use>
           </svg>
           </div>
 

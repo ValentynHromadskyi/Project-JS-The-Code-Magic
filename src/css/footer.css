@@ -8,6 +8,10 @@
                 margin-top: 80px;
 }
 
+.footer-parent-div {
+    margin-bottom: 80px;
+}
+
 /* LOGO */
 
 .footer-logo-div {
@@ -135,8 +139,13 @@ color: rgba(232, 232, 226, 0.60);
     line-height: 18px;
 }
 
+.foot-form {
+    width: 100%;
+}
+
 .form-field {
     color: #E8E8E2;
+    width: 335px;
         padding: 12px 0 12px 18px;
         background-color: transparent;
         align-items: center;
@@ -148,7 +157,7 @@ color: rgba(232, 232, 226, 0.60);
 
 .foot-sub-button {
     display: flex;
-        max-width: 335px;
+        width: 335px;
         padding: 12px 0;
         justify-content: center;
         align-items: center;
@@ -163,6 +172,14 @@ color: rgba(232, 232, 226, 0.60);
                 font-style: normal;
                 font-weight: 500;
                 line-height: 18px;
+}
+
+.foot-sub-button:hover {
+    background-color: #ace8aca8;
+}
+
+.foot-sub-button:focus {
+    background-color: #8ce68ca8;
 }
 
 .footer-smal-text {
@@ -228,6 +245,7 @@ color: rgba(232, 232, 226, 0.60);
 
 .footer-parent-div {
     display: flex;
+    margin-bottom: 120px;
 }
 
 .footer-first-div {
@@ -300,6 +318,7 @@ font-size: 40px;
 
     .footer-parent-div {
         display: flex;
+        margin-bottom: 128px;
     }
 
     .footer-second-div {
@@ -356,4 +375,227 @@ font-size: 40px;
     .form-filed {
         width: 100%;
     }
+}
+
+
+/*================= MODAL ICON STYLE ==========*/
+
+.modal-subscription {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 300ms ease-in-out;
+} 
+
+.modal-unsubscription {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 300ms ease-in-out;
+}
+
+.visible-modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close {
+    width: 27px;
+    height: 27px;
+    border: none;
+    border-radius: 50px;
+    transition: all 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 14px;
+    right: 14px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.close:hover,
+.close:focus {
+    background-color: rgba(1, 1, 1, 0.1);
+}
+
+.icon-close {
+    width: 22px;
+    height: 22px;
+}
+
+.modal-unsubcont {
+    position: relative;
+    width: calc(100% - 20px);
+    max-width: 335px;
+    height: 276px;
+    background-color: #e8e8e2;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.title-unsub {
+    color: #010101;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    width: calc(100% - 90px);
+}
+
+.span-text {
+    color: #6d8434;
+}
+
+.paragraph-unsub {
+    color: rgba(1, 1, 1, 0.7);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    width: calc(100% - 40px);
+}
+
+.close {
+    position: absolute;
+}
+
+.modal-unsubtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.modal_subcont {
+    position: relative;
+    width: calc(100% - 20px);
+    max-width: 335px;
+    height: 400px;
+    background-color: #e8e8e2;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.modal-subtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-sub {
+    color: #010101;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    width: calc(100% - 15px);
+    padding: 100px 43px 14px 43px;
+}
+
+.paragraph-sub {
+    color: rgba(1, 1, 1, 0.7);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+    width: calc(100% - 15px);
+    padding-left: 27px;
+    padding-right: 27px;
+}
+
+.modal-subscription-img {
+    position: absolute;
+    border-radius: 19px;
+    max-height: 135px;
+    bottom: 0%;
+    right: 0%;
+    border-radius: 18.966px;
+        background: url(<path-to-image>), lightgray 307.296px -0.293px / 63.93% 111.375% no-repeat;
+}
+
+.modal-img {
+    border-radius: 19px;
+}
+
+@media (min-width: 375px) {
+    .modal-unsubcont {
+        max-width: 335px;
+    }
+
+    .modal-subcont {
+        max-width: 335px;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal_subcont {
+        width: 490px;
+        max-width: 490px;
+        gap: 20px;
+    }
+
+    .close {
+        width: 33px;
+        height: 33px;
+        top: 24px;
+        right: 24px;
+    }
+
+    .icon-close {
+        width: 24px;
+        height: 24px;
+    }
+
+    .title-unsub {
+        font-size: 24px;
+        line-height: 1;
+        width: 245px;
+    }
+
+    .paragraph-sub {
+        gap: 20px;
+    }
+
+    .modal-unsubcont {
+        width: 469px;
+        max-width: 469px;
+        height: 308px;
+    }
+
+    .paragraph-unsub {
+        width: 349px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .modal-subscription-img {
+        position: absolute;
+        border-radius: 19px;
+        height: 135px;
+        bottom: 0%;
+        right: 0%;
+    }
+
+    .title-sub {
+        font-size: 24px;
+        padding: 90px 115px 20px 115px;
+    }
+
+    .paragraph-sub {
+        font-size: 16px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 5px;
+    }
+}
+
+.modal-backdrop {
+    background: rgba(1, 1, 1, 0.40);
 }
