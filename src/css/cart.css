@@ -2,6 +2,12 @@
     display: block;
     flex-direction: column;
 }
+.cart-list-block {
+    max-height: 550px;
+    /* Наприклад, встановіть фіксовану висоту для контейнера */
+    overflow-y: auto;
+    /* Додайте вертикальний скролл, якщо контейнер переповнюється */
+}
 
 .cart-title-block {
     display: flex;
