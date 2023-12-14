@@ -7,18 +7,8 @@ const STORAGE_KEY = "cart";
 export function saveDataInLS(data, key) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-const newProduct = [{
-    id: "640c2dd963a319ea671e37a9",
-    pieces: "2", 
-},
-{
-    id: "640c2dd963a319ea671e3860",
-    pieces: "1", 
-}]
     
-saveDataInLS(newProduct, STORAGE_KEY);
-
-    const refs = {
+const refs = {
         cartBlock: document.querySelector(".js-cart-block"),
         cartCounter: document.querySelector("span#cart-counter"),
         deleteAllBtn: document.querySelector(".delete-all-btn"),
@@ -30,7 +20,7 @@ saveDataInLS(newProduct, STORAGE_KEY);
         cardDeleteOneBtn: document.querySelector(".carg-delete-all-btn"),
     }
 
-refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
+
 
 
 // showBtnLoad();
@@ -53,8 +43,7 @@ cartUsage();
 // використання корзини
 export async function cartUsage() {
     let cartArr = await getDataFromLS(STORAGE_KEY);
-    console.log(cartArr.length);
-         
+            
     // каунтер - productQuantity(cartArr);
     refs.cartCounter.textContent = cartArr.length;
 
@@ -65,28 +54,41 @@ export async function cartUsage() {
      }
      showBtnLoad();
     renderCards(cartArr);
-  sum(cartArr);
- 
-    }
+  
+ refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
 
-async function renderCards() {
-    
-    let cartArr = getDataFromLS(STORAGE_KEY);
-    console.log(cartArr);
-    cartArr.forEach(cartArrItem => {
-      let id = cartArrItem.id;
-      console.log(id);
-        getProductById(id).then(response => {
-            const cartId = renderProductCard(response, id);
-          refs.cartListBlock.innerHTML += cartId;
-           const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
-          deleteBtn.addEventListener("click", () => {
-            deleteOneProduct(id);
-          }) 
-        })
-    })
 }
 
+async function renderCards() {
+  refs.cartListBlock.innerHTML = "";
+    let cartArr = getDataFromLS(STORAGE_KEY);
+    console.log(cartArr);
+
+    
+
+    for (const cartArrItem of cartArr) {
+        let id = cartArrItem.id;
+        console.log(id);
+
+        try {
+            const response = await getProductById(id);
+            const cartId = renderProductCard(response, id);
+            refs.cartListBlock.innerHTML += cartId;
+
+            const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
+            deleteBtn.addEventListener("click", () => {
+                deleteOneProduct(id);
+            });
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    sum(cartArr);
+
+    refs.cartCounter.textContent = cartArr.length;
+}
 // 
 
  function getDataFromLS(key) {
@@ -100,45 +102,50 @@ async function renderCards() {
 
 
 // Видалення ВСІХ товарів з корзини
-  function deleteAllProducts() {
-      localStorage.removeItem(STORAGE_KEY);
-      refs.cartBlock.innerHTML = createMarkupEmptyCart();
-      refs.cartCounter.forEach(item => item.textContent = 0);
-    
-};
+ function deleteAllProducts() {
+    localStorage.removeItem(STORAGE_KEY);
+    refs.cartBlock.innerHTML = createMarkupEmptyCart();
+    refs.cartCounter.textContent = 0; 
+}
 
 
-// // Видалення ОДНОГО товар з корзини
- function deleteOneProduct(id) {
-   let cartArr = getDataFromLS(STORAGE_KEY);
-   console.log(cartArr);
-  //  let cartArrChanged = 
-
-   let productIndex = cartArr.findIndex(item => item.id === id);
-   console.log(productIndex);
-   if (productIndex !== -1) {
-     cartArr.splice(productIndex, 1);
-     console.log(cartArr);
-      saveDataInLS(cartArr, STORAGE_KEY);
-      // refs.cartListBlock.innerHTML = "";
-      renderCards(cartArr);
-   }
-};
-// розрахунок суми
-async function sum() {
-    let totalSum = 0;
+ // Видалення ОДНОГО товар з корзини
+async function deleteOneProduct(id) {
     let cartArr = getDataFromLS(STORAGE_KEY);
-    console.log(cartArr);
+    let productIndex = cartArr.findIndex(item => item.id === id);
 
-    cartArr.forEach(cartArrItem => {
-        let id = cartArrItem.id;
+    if (productIndex !== -1) {
+        cartArr.splice(productIndex, 1);
+        saveDataInLS(cartArr, STORAGE_KEY);
+        refs.cartListBlock.innerHTML = ""; 
+        await renderCards(cartArr);
+        sum(cartArr);
+        refs.cartCounter.textContent = cartArr.length; 
 
-        getProductById(id).then(response => {
+        if (cartArr.length === 0) {
+            refs.cartBlock.innerHTML = createMarkupEmptyCart();
+            hideBtnLoad();
+        }
+    }
+}
+
+// розрахунок суми
+async function sum(cartArr) {
+    try {
+        let totalSum = 0;
+        const promises = cartArr.map(cartArrItem => getProductById(cartArrItem.id));
+
+        const responses = await Promise.all(promises);
+
+        responses.forEach(response => {
             let productPrice = response.price;
             totalSum += productPrice;
-            refs.spanYourOrderPrice.textContent = `$${Number(totalSum.toFixed(2))}`;
-        })
-    });
+        });
+
+        refs.spanYourOrderPrice.textContent = `$${Number(totalSum.toFixed(2))}`;
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 // розмітка пустої корзини
@@ -149,7 +156,7 @@ function createMarkupEmptyCart() {
         <div class="cart-img-empty-cart">
           <img
             class="img-shopping-cart"
-            src="./img/cart/yellow-shopping-basket.png"
+            src="/img/cart/yellow-shopping-basket.png"
             width="132"
             height="114"
           />
@@ -220,3 +227,4 @@ function cartReplaceUnderscoresWithSpaces(inputString) {
   let outputString = inputString.replace(/_/g, ' ');
   return outputString;
 }
+
