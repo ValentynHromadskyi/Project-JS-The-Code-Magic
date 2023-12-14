@@ -7,16 +7,16 @@ const STORAGE_KEY = "cart";
 export function saveDataInLS(data, key) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-const newProduct = [{
-    id: "640c2dd963a319ea671e37a9",
-    pieces: "2", 
-},
-{
-    id: "640c2dd963a319ea671e3860",
-    pieces: "1", 
-}]
+// const newProduct = [{
+//     id: "640c2dd963a319ea671e37a9",
+//     pieces: "2", 
+// },
+// {
+//     id: "640c2dd963a319ea671e3860",
+//     pieces: "1", 
+// }]
     
-saveDataInLS(newProduct, STORAGE_KEY);
+// saveDataInLS(newProduct, STORAGE_KEY);
 
     const refs = {
         cartBlock: document.querySelector(".js-cart-block"),
@@ -25,11 +25,13 @@ saveDataInLS(newProduct, STORAGE_KEY);
         cartDeleteAllBlock: document.querySelector(".cart-delete-all-section"),
         cartListBlock: document.querySelector(".cart-list-block"),
         cartEmptyCart: document.querySelector(".cart-empty-cart"),
-        yourOrderPrice: document.querySelector(".your-order-price"),
+        yourOrderPrice: document.querySelector(".cart-total-price"),
         spanYourOrderPrice: document.querySelector("span#your-order-total-price"),
+        cardDeleteOneBtn: document.querySelector(".carg-delete-all-btn"),
     }
 
 refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
+
 
 // showBtnLoad();
 hideBtnLoad();
@@ -50,7 +52,7 @@ cartUsage();
 
 // використання корзини
 export async function cartUsage() {
-    let cartArr = getDataFromLS(STORAGE_KEY);
+    let cartArr = await getDataFromLS(STORAGE_KEY);
     console.log(cartArr.length);
          
     // каунтер - productQuantity(cartArr);
@@ -63,26 +65,28 @@ export async function cartUsage() {
      }
      showBtnLoad();
     renderCards(cartArr);
-    sum(cartArr);
+  sum(cartArr);
+ 
     }
 
 async function renderCards() {
-   
+    
     let cartArr = getDataFromLS(STORAGE_KEY);
     console.log(cartArr);
     cartArr.forEach(cartArrItem => {
-        let id = cartArrItem.id;
-
+      let id = cartArrItem.id;
+      console.log(id);
         getProductById(id).then(response => {
             const cartId = renderProductCard(response, id);
-            refs.cartListBlock.innerHTML += cartId;
+          refs.cartListBlock.innerHTML += cartId;
+          
         })
     })
 }
-refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
+
 // 
 
-function getDataFromLS(key) {
+ function getDataFromLS(key) {
     try {
         const data = localStorage.getItem(key);
         return data ? JSON.parse(data) : [];
@@ -92,7 +96,7 @@ function getDataFromLS(key) {
 }
 
 
-// Видалення товарів з корзини
+// Видалення ВСІХ товарів з корзини
   function deleteAllProducts() {
       localStorage.removeItem(STORAGE_KEY);
       refs.cartBlock.innerHTML = createMarkupEmptyCart();
@@ -100,6 +104,26 @@ function getDataFromLS(key) {
     
 };
 
+// refs.cardDeleteOneBtn.addEventListener("click", deleteOneProduct);
+ deleteOneProduct();
+// Видалення ОДНОГО товар з корзини
+ function deleteOneProduct(id) {
+   let cartArr = getDataFromLS(STORAGE_KEY);
+   console.log(cartArr);
+  //  let cartArrChanged = 
+
+   let productIndex = cartArr.findIndex(item => item.id === id);
+   console.log(productIndex);
+   if (productIndex !== -1) {
+     console.log(cartArr.splice(productIndex, 1));
+     console.log(cartArr);
+      saveDataInLS(cartArr, STORAGE_KEY);
+      refs.cartListBlock.innerHTML = "";
+      renderCards(cartArr);
+   }
+   
+    
+};
 // розрахунок суми
 async function sum() {
     let totalSum = 0;
@@ -155,30 +179,31 @@ function renderProductCard(data) {
      
     let result = cartReplaceUnderscoresWithSpaces(data.category);
   return `
-    <div class="productlist-card" data-productlist-id="${data._id}">
-      <div class="productlist-background">
-        <img src="${data.img}" alt="${data.name}" class="product-image">
+    <div class="cart-card" data-productlist-id="${data._id}">
+      <div class="cart-background">
+        <img src="${data.img}" alt="${data.name}" class="cart-image">
       </div>
-      <div class="productlist-details">
-        <div class="productlist-details-text">
-          <h2 class="productlist-name">${data.name}</h2>
-          <div class="pl-det">
-            <div class="category-cont">
-             <p class="productlist-category">Category:
-                <span class="word">${result}</span></p></div>
+      <div class="cart-details">
+        <div class="cart-details-text">
+        <div class="cart-close-icon">
+          <h2 class="cart-name">${data.name}</h2>
+          <button type="button" class="card-delete-all-btn">
+          <svg class="card-delete-close-icon">
+            <use href="./icons.svg#icon-close-mini"></use>
+          </svg>
+        </button>
+          </div>
+          <div class="cart-pl-det">
+            <div class="cart-category-cont">
+             <p class="cart-category">Category:
+                <span class="cart-word">${result}</span></p></div>
               <div>  
-             <p class="productlist-size">Size:
-                <span class="word">${data.size}</span></p></div>
+             <p class="cart-size">Size:
+                <span class="cart-word">${data.size}</span></p></div>
             </div>
           </div>
-          <div class="price-icon">
-          <p class="productlist-price">$${data.price.toFixed(2)}</p>
-
-          <div class="price-icon-cont">
-          <svg class="productlist-icon" width="18" height="18">
-            <use href="../icons.svg#icon-shopping-cart"></use>
-          </svg>
-          </div>
+          <div class="cart-price">
+          <p class="cart-price">$${data.price.toFixed(2)}</p> 
           </div>
         </div>
       </div>
@@ -186,26 +211,9 @@ function renderProductCard(data) {
   `;
     
 }
-
-// // розмітка картки товару
-// function createMarkupCartList(arr) {
-//     return arr.map(
-//         ({ _id, name, img, category, price, size }) => `
-         
-        
-//     `
-//         )
-//         .join('');
-// }
      
 
 function cartReplaceUnderscoresWithSpaces(inputString) {
   let outputString = inputString.replace(/_/g, ' ');
   return outputString;
 }
-
-// // каунтер
-// export function productQuantity(cartArr) {
-//     refs.cartCounter.textContent = cartArr.length;
-//     // return refs.cartCounter.forEach(item => item.textContent = cartArr.length);
-// }

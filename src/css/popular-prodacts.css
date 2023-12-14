@@ -1,13 +1,13 @@
 .popular-container {
   width: 335px;
-  padding-bottom: 80px;
-  padding-top: 80px;
+  /* padding-bottom: 80px; */
+  /* padding-top: 80px; */
 }
 .popular-title {
   font-weight: 500;
   font-size: 24px;
   line-height: 1.17em;
-  /*margin-bottom: 20px;*/
+  margin-bottom: 20px;
 }
 .popular-name {
   font-weight: 500;
@@ -81,7 +81,7 @@
   font-size: 12px;
   gap: 9px;
   color: darkgray;
-  width: 152px;
+  width: 154px;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
@@ -89,11 +89,11 @@
 
 /* Media */
 @media screen and (min-width: 768px) {
-  .container {
+  /* .container {
     max-width: 704px;
-  }
+  } */
   .popular-container {
-    width: 563px;
+    /*width: 563px;*/
     /*height: 320px;*/
     display: inline-flex;
     flex-direction: column;
@@ -117,24 +117,29 @@
   .popular-title {
     font-size: 28px;
     line-height: 1.14em;
-    /*margin-bottom: 20px;*/
+    gap: 20px;
+    white-space: nowrap;
+    margin-bottom: 0px;
   }
   .popular-name {
     font-size: 20px;
     line-height: 1.2em;
-    /*margin-bottom: 12px;*/
+    margin-bottom: 12px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
+  /* .container {
     min-width: 1240px;
-  }
+  } */
   .popular-container {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding-left: 1065px;
-    padding-right: 100px;
+    /* padding-left: 100px; */
+    /* padding-right: 0px; */
+  }
+  .popular {
+    flex-direction: column;
   }
 }
