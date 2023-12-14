@@ -145,7 +145,7 @@ window.addEventListener('resize', fetchAndRenderProducts);
 
 // подключение файла пагинации
 var script = document.createElement('script');
-script.src = '/js/pagination.js';
+script.src = '../js/pagination.js';
 document.head.appendChild(script);
 
 

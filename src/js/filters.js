@@ -8,7 +8,7 @@
 };
 
   if (refs.form) {
-    refs.form.addEventListener('submit', handleFiltersSubmit);
+    refs.form.addEventListener('input', handleFiltersSubmit);
   }
   
   loadCategories();
@@ -62,7 +62,7 @@
 
   function changeForm() {
     const filtersParce = JSON.parse(localStorage.getItem('filters'));
-    if (refs.filtersInput) {
+    if (refs.filtersInput.value) {
     refs.filtersInput.value = filtersParce.keyword || '';}
     if (refs.filtersCategories) {
     refs.filtersCategories.value = filtersParce.category || '';
