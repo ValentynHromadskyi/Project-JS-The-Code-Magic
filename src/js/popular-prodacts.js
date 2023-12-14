@@ -8,7 +8,7 @@ import { replaceUnderscoresWithSpaces } from './filters';
 function renderPopularProductCard(product) {
   let result = replaceUnderscoresWithSpaces(product.category);
   return `
-      <div class="popular-card">
+      <div class="popular-card modalOpopul" data-productlist-id="${product._id}">
        <div class="popular-background">
         <img src="${product.img}" alt="${product.name}" class="popular-img">
       </div>

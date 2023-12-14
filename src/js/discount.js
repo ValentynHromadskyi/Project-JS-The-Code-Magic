@@ -7,7 +7,7 @@ import { getDiskountProduct } from './api';
 
   function renderDiscountProductCard(product) {
     return `
-      <div class="product-card">
+      <div class="product-card modalOndisc" data-productlist-id="${product._id}">
         <div class="product-background">
 
         <div class="discount-label">

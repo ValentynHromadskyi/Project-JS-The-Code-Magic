@@ -52,7 +52,7 @@ function getLimit() {
 function renderProductCard(data) {
   let result = replaceUnderscoresWithSpaces(data.category);
   return `
-    <div class="productlist-card" data-productlist-id="${data._id}">
+    <div class="productlist-card modalOn" data-productlist-id="${data._id}">
       <div class="productlist-background">
         <img src="${data.img}" alt="${data.name}" class="product-image">
       </div>
