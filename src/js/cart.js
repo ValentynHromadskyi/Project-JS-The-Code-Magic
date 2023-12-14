@@ -79,7 +79,10 @@ async function renderCards() {
         getProductById(id).then(response => {
             const cartId = renderProductCard(response, id);
           refs.cartListBlock.innerHTML += cartId;
-          
+           const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
+          deleteBtn.addEventListener("click", () => {
+            deleteOneProduct(id);
+          }) 
         })
     })
 }
@@ -104,9 +107,8 @@ async function renderCards() {
     
 };
 
-// refs.cardDeleteOneBtn.addEventListener("click", deleteOneProduct);
- deleteOneProduct();
-// Видалення ОДНОГО товар з корзини
+
+// // Видалення ОДНОГО товар з корзини
  function deleteOneProduct(id) {
    let cartArr = getDataFromLS(STORAGE_KEY);
    console.log(cartArr);
@@ -115,14 +117,12 @@ async function renderCards() {
    let productIndex = cartArr.findIndex(item => item.id === id);
    console.log(productIndex);
    if (productIndex !== -1) {
-     console.log(cartArr.splice(productIndex, 1));
+     cartArr.splice(productIndex, 1);
      console.log(cartArr);
       saveDataInLS(cartArr, STORAGE_KEY);
-      refs.cartListBlock.innerHTML = "";
+      // refs.cartListBlock.innerHTML = "";
       renderCards(cartArr);
    }
-   
-    
 };
 // розрахунок суми
 async function sum() {
@@ -145,22 +145,25 @@ async function sum() {
 function createMarkupEmptyCart() {
     return `
     <div class="js-cart-block">
-      <div class="cart-img-empty-cart">
-        <img
-          class="img-shopping-cart"
-          src="./img/cart/yellow-shopping-basket.png"
-          width="132"
-          height="114"
-        />
-      </div>
-      <div class="cart-text">
-        <p class="cart-text-empty">
-          Your basket is <span class="cart-text-span">empty...</span>
-        </p>
-        <p class="cart-all-text">
-          Go to the main page to select your favorite <br />
-          products and add them to the cart.
-        </p>
+      <div class="cart-empty-cart">
+        <div class="cart-img-empty-cart">
+          <img
+            class="img-shopping-cart"
+            src="./img/cart/yellow-shopping-basket.png"
+            width="132"
+            height="114"
+          />
+          
+        </div>
+        <div class="cart-text">
+            <p class="cart-text-empty">
+              Your basket is <span class="cart-text-span">empty...</span>
+            </p>
+            <p class="cart-all-text">
+              Go to the main page to select your favorite <br />
+              products and add them to the cart.
+            </p>
+          </div>
       </div>
     </div>`
 }
