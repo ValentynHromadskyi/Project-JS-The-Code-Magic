@@ -25,12 +25,18 @@ const refs = {
 
 // showBtnLoad();
 hideBtnLoad();
-
 function hideBtnLoad() {
-    refs.cartDeleteAllBlock.setAttribute('hidden', '');
-    refs.yourOrderPrice.setAttribute('hidden', '');
-    refs.cartEmptyCart.removeAttribute('hidden', '');
+    if (refs.cartDeleteAllBlock) {
+        refs.cartDeleteAllBlock.setAttribute('hidden', '');
+    }
+    if (refs.yourOrderPrice) {
+        refs.yourOrderPrice.setAttribute('hidden', '');
+    }
+    if (refs.cartEmptyCart) {
+        refs.cartEmptyCart.removeAttribute('hidden', '');
+    }
 }
+
 
 function showBtnLoad() {
     refs.cartDeleteAllBlock.removeAttribute('hidden', '');
@@ -62,10 +68,7 @@ export async function cartUsage() {
 async function renderCards() {
   refs.cartListBlock.innerHTML = "";
     let cartArr = getDataFromLS(STORAGE_KEY);
-    console.log(cartArr);
-
     
-
     for (const cartArrItem of cartArr) {
         let id = cartArrItem.id;
         console.log(id);
