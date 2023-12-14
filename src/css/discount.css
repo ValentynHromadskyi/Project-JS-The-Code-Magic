@@ -1,5 +1,5 @@
 .discount-container {
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
 
 .discount {
@@ -109,10 +109,6 @@
 @media screen and (min-width: 768px) {
     .container {
         max-width: 704px;
-    }
-
-    .discount-container {
-        padding: 100px 32px;
     }
 
     .discount {

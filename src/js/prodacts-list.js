@@ -11,7 +11,22 @@ async function getProductsList(keyword, category, page = 1, limit = 6) {
   try {
     const response = await fetch(url);
     const products = await response.json();
+    const totalPages = products.totalPages;
     return products.results;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return [];
+  }
+}
+
+async function getProduct(keyword, category, page = 1, limit = 6) {
+  const url = `https://food-boutique.b.goit.study/api/products?keyword=${keyword}&category=${category}&page=${page}&limit=${limit}`;
+
+  try {
+    const response = await fetch(url);
+    const products = await response.json();
+    const totalPages = products.totalPages;
+    return products;
   } catch (error) {
     console.error('Error fetching products:', error);
     return [];
@@ -46,7 +61,7 @@ function renderProductCard(data) {
           <h2 class="productlist-name">${data.name}</h2>
           <div class="pl-det">
           
-          <div class="category-cont">
+          <div class="cat-cont">
           <p class="productlist-category">Category:
           <span class="word">${result}</span></p>
 
@@ -62,9 +77,9 @@ function renderProductCard(data) {
           </div>
           <div class="price-icon">
           <p class="productlist-price">$${data.price.toFixed(2)}</p>
-          <div class="price-icon-cont">
+          <div id="${data._id}" class="price-icon-cont inBascet">
           <svg class="productlist-icon" width="18" height="18">
-            <use href="../icons.svg#icon-shopping-cart"></use>
+            <use href="/icons.svg#icon-shopping-cart"></use>
           </svg>
           </div>
           </div>
@@ -82,7 +97,12 @@ async function fetchAndRenderProducts(page = 1) {
   if (parstedStorage.keyword === null) {
     keyword=''
   }
-  let category = parstedStorage.category;
+
+  // let category = parstedStorage.category;
+  let categoryLine = parstedStorage.category;
+  let category = underline(categoryLine)
+console.log(category);
+
   if (parstedStorage.category === null) {
     category=''
   }
@@ -90,6 +110,7 @@ async function fetchAndRenderProducts(page = 1) {
 
   try {
     const response = await getProductsList(keyword, category, page, limit);
+    const responsed = await getProduct(keyword, category, page, limit);
     const products = response;
 
     const productList = document.getElementById('productList');
@@ -99,8 +120,13 @@ async function fetchAndRenderProducts(page = 1) {
       productList.innerHTML += renderProductCard(product);
     });
 
-    const totalPages = Math.ceil(products.length / limit);
+    // console.log(products)
+    // const totalPages = Math.ceil(products.length / limit);
+    // console.log(totalPages)
+    // const totalPages = products.totalPages
+    const totalPages = responsed.totalPages 
 
+    console.log(page);
     renderPagination(totalPages, page);
   } catch (error) {
     console.error('Помилка:', error);
@@ -126,3 +152,8 @@ var script = document.createElement('script');
 script.src = '/js/pagination.js';
 document.head.appendChild(script);
 
+
+
+function underline(inputString) {
+  let outputString = inputString.replace(/ /g, '_');
+  return outputString;}
