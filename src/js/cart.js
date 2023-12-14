@@ -7,16 +7,16 @@ const STORAGE_KEY = "cart";
 export function saveDataInLS(data, key) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-// const newProduct = [{
-//     id: "640c2dd963a319ea671e37a9",
-//     pieces: "2", 
-// },
-// {
-//     id: "640c2dd963a319ea671e3860",
-//     pieces: "1", 
-// }]
+const newProduct = [{
+    id: "640c2dd963a319ea671e37a9",
+    pieces: "2", 
+},
+{
+    id: "640c2dd963a319ea671e3860",
+    pieces: "1", 
+}]
     
-// saveDataInLS(newProduct, STORAGE_KEY);
+saveDataInLS(newProduct, STORAGE_KEY);
 
     const refs = {
         cartBlock: document.querySelector(".js-cart-block"),
