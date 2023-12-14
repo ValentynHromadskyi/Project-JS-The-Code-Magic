@@ -33,7 +33,7 @@ import{a as g}from"./vendor-a61d8330.js";(function(){const e=document.createElem
         </div>
       </div>
     </div>
-  `}const _=localStorage.getItem("filters"),p=JSON.parse(_);async function h(t=1){let e=p.keyword;p.keyword===null&&(e="");let o=p.category;p.category===null&&(o="");const r=N();try{const c=await M(e,o,t,r),s=await T(e,o,t,r),i=c,u=document.getElementById("productList");u.innerHTML="",i.forEach(C=>{u.innerHTML+=z(C)});const E=s.totalPages;renderPagination(E,t)}catch(c){console.error("Помилка:",c)}}document.addEventListener("DOMContentLoaded",()=>{h()});window.changePage=function(t){h(t),console.log(t)};window.addEventListener("resize",h);var b=document.createElement("script");b.src="/js/pagination.js";document.head.appendChild(b);function F(t,e){return t.sort(()=>.5-Math.random()).slice(0,e)}function H(t){let e=w(t.category);return`
+  `}const _=localStorage.getItem("filters"),p=JSON.parse(_);async function h(t=1){let e=p.keyword;p.keyword===null&&(e="");let o=p.category;p.category===null&&(o="");const r=N();try{const c=await M(e,o,t,r),s=await T(e,o,t,r),i=c,u=document.getElementById("productList");u.innerHTML="",i.forEach(C=>{u.innerHTML+=z(C)});const E=s.totalPages;renderPagination(E,t)}catch(c){console.error("Помилка:",c)}}document.addEventListener("DOMContentLoaded",()=>{h()});window.changePage=function(t){h(t),console.log(t)};window.addEventListener("resize",h);var b=document.createElement("script");b.src="./js/pagination.js";document.head.appendChild(b);function F(t,e){return t.sort(()=>.5-Math.random()).slice(0,e)}function H(t){let e=w(t.category);return`
       <div class="popular-card">
        <div class="popular-background">
         <img src="${t.img}" alt="${t.name}" class="popular-img">
@@ -165,4 +165,4 @@ import{a as g}from"./vendor-a61d8330.js";(function(){const e=document.createElem
       </div>
     </div>
   `}function ot(t){return t.replace(/_/g," ")}function rt(t){return new Promise((e,o)=>{const r=document.querySelectorAll(t);if(r.length>0)e(r);else{const c=new MutationObserver(()=>{const s=document.querySelectorAll(t);s.length>0&&(c.disconnect(),e(s))});c.observe(document.documentElement,{childList:!0,subtree:!0})}})}rt(".inBascet").then(t=>{t.forEach(e=>{e.addEventListener("click",o=>{o.currentTarget.id;let r=JSON.parse(localStorage.getItem("cart"))||[];console.log(r);const c={id:o.currentTarget.id,pieces:"1"};r.push(c),localStorage.setItem("cart",JSON.stringify(r))})})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=main-d10f22e0.js.map
+//# sourceMappingURL=main-46ef6315.js.map
