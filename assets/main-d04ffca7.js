@@ -46,14 +46,15 @@ import{a as p}from"./vendor-a61d8330.js";(function(){const e=document.createElem
           <div class="category-cont">
           <p class="popular-text">Category:
           <span class="word">${e}</span></p>
-
+<ul class="pop-text-two-cat">
+<li class="pop-text-size-pop">
           <p class="popular-text">Size:
-          <span class="word">${t.size}</span></p>
+          <span class="word">${t.size}</span></p></li>
           
 
-          
+          <li>
           <p class="popular-text">Popularity:
-          <span class="word">${t.popularity}</span></p>
+          <span class="word">${t.popularity}</span></p></li></ul>
           </div>
 
            <div class="popularname-price">
@@ -164,4 +165,4 @@ import{a as p}from"./vendor-a61d8330.js";(function(){const e=document.createElem
       </div>
     </div>
   `}function ct(t){return t.replace(/_/g," ")}function st(t){return new Promise((e,r)=>{const o=document.querySelectorAll(t);if(o.length>0)e(o);else{const c=new MutationObserver(()=>{const s=document.querySelectorAll(t);s.length>0&&(c.disconnect(),e(s))});c.observe(document.documentElement,{childList:!0,subtree:!0})}})}st(".inBascet").then(t=>{t.forEach(e=>{e.addEventListener("click",r=>{r.currentTarget.id;let o=JSON.parse(localStorage.getItem("cart"))||[];console.log(o);const c={id:r.currentTarget.id,pieces:"1"};o.push(c),localStorage.setItem("cart",JSON.stringify(o))})})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=main-981ab247.js.map
+//# sourceMappingURL=main-d04ffca7.js.map
