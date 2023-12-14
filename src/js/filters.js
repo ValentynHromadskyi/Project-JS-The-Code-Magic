@@ -5,9 +5,11 @@
     form: document.getElementById('fiters-form'),
     filtersInput: document.querySelector('.filters-input'),
     filtersCategories: document.querySelector('.filters-categories'),
-  };
+};
+
   if (refs.form) {
-  refs.form.addEventListener('submit', handleFiltersSubmit);}
+    refs.form.addEventListener('submit', handleFiltersSubmit);
+  }
   
   loadCategories();
 

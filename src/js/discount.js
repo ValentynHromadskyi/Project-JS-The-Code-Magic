@@ -28,7 +28,7 @@ import { getDiskountProduct } from './api';
           
           <div id="${product._id}" class="discount-icon-cont inBascet">
           <svg class="discount-icon" width="34" height="34">
-            <use href="/icons.svg#icon-heroicons-solid_shopping-cart"></use>
+            <use href="./icons.svg#icon-shopping-cart"></use>
           </svg>
           </div>
 
