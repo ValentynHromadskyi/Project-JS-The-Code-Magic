@@ -61,7 +61,7 @@ import{a as g}from"./vendor-a61d8330.js";(function(){const e=document.createElem
            </div>
            <div id="${t._id}" class="popular-icon-cont inBascet">
             <svg class="popular-icon" width="12" height="12">
-              <use href="./icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
+              <use href="/icons.svg#icon-heroicons-solid_shopping-cart-mini"></use>
             </svg>
           </div>
         </div>
@@ -165,4 +165,4 @@ import{a as g}from"./vendor-a61d8330.js";(function(){const e=document.createElem
       </div>
     </div>
   `}function ot(t){return t.replace(/_/g," ")}function rt(t){return new Promise((e,o)=>{const r=document.querySelectorAll(t);if(r.length>0)e(r);else{const c=new MutationObserver(()=>{const s=document.querySelectorAll(t);s.length>0&&(c.disconnect(),e(s))});c.observe(document.documentElement,{childList:!0,subtree:!0})}})}rt(".inBascet").then(t=>{t.forEach(e=>{e.addEventListener("click",o=>{o.currentTarget.id;let r=JSON.parse(localStorage.getItem("cart"))||[];console.log(r);const c={id:o.currentTarget.id,pieces:"1"};r.push(c),localStorage.setItem("cart",JSON.stringify(r))})})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=main-623d6efa.js.map
+//# sourceMappingURL=main-d10f22e0.js.map
