@@ -24,8 +24,6 @@ function renderPopularProductCard(product) {
 <li class="pop-text-size-pop">
           <p class="popular-text">Size:
           <span class="word">${product.size}</span></p></li>
-          
-
           <li>
           <p class="popular-text">Popularity:
           <span class="word">${product.popularity}</span></p></li></ul>
