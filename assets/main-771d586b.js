@@ -168,4 +168,4 @@ import{a as g}from"./vendor-a61d8330.js";(function(){const e=document.createElem
       </div>
     </div>
   `}function rt(t){return t.replace(/_/g," ")}function ot(t){return new Promise((e,r)=>{const o=document.querySelectorAll(t);if(o.length>0)e(o);else{const c=new MutationObserver(()=>{const s=document.querySelectorAll(t);s.length>0&&(c.disconnect(),e(s))});c.observe(document.documentElement,{childList:!0,subtree:!0})}})}ot(".inBascet").then(t=>{t.forEach(e=>{e.addEventListener("click",r=>{r.currentTarget.id;let o=JSON.parse(localStorage.getItem("cart"))||[];console.log(o);const c={id:r.currentTarget.id,pieces:"1"};o.push(c),localStorage.setItem("cart",JSON.stringify(o))})})}).catch(t=>{console.error(t.message)});
-//# sourceMappingURL=main-18ecc37d.js.map
+//# sourceMappingURL=main-771d586b.js.map
