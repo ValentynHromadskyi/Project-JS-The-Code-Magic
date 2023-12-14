@@ -20,9 +20,6 @@ const refs = {
         cardDeleteOneBtn: document.querySelector(".carg-delete-all-btn"),
     }
 
-
-
-
 // showBtnLoad();
 hideBtnLoad();
 function hideBtnLoad() {
@@ -62,37 +59,38 @@ export async function cartUsage() {
     renderCards(cartArr);
   
  refs.deleteAllBtn.addEventListener("click", deleteAllProducts);
-
 }
 
 async function renderCards() {
   refs.cartListBlock.innerHTML = "";
-    let cartArr = getDataFromLS(STORAGE_KEY);
-    
-    for (const cartArrItem of cartArr) {
-        let id = cartArrItem.id;
-        console.log(id);
 
-        try {
-            const response = await getProductById(id);
-            const cartId = renderProductCard(response, id);
-            refs.cartListBlock.innerHTML += cartId;
+  let cartArr = await getDataFromLS(STORAGE_KEY);
 
-            const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
-            deleteBtn.addEventListener("click", () => {
-                deleteOneProduct(id);
-            });
+  for (const cartArrItem of cartArr) {
+    let id = cartArrItem.id;
 
-        } catch (error) {
-            console.error(error.message);
-        }
+    try {
+      const response = await getProductById(id);
+      const cartId = renderProductCard(response, id);
+      refs.cartListBlock.innerHTML += cartId;
+
+      const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
+      deleteBtn.addEventListener("click", () => {
+        deleteOneProduct(id);
+
+        // Remove the removed card from `cartListBlock`
+        const cartList = document.querySelector(".js-cart-block .cart-list");
+        const cartItem = cartList.querySelector(`.cart-card[data-productlist-id="${id}"]`);
+        cartList.removeChild(cartItem);
+      });
+    } catch (error) {
+      console.error(error.message);
     }
+  }
 
-    sum(cartArr);
-
-    refs.cartCounter.textContent = cartArr.length;
+  sum(cartArr);
+  refs.cartCounter.textContent = cartArr.length;
 }
-// 
 
  function getDataFromLS(key) {
     try {
@@ -231,3 +229,36 @@ function cartReplaceUnderscoresWithSpaces(inputString) {
   return outputString;
 }
 
+
+
+
+
+
+// async function renderCards() {
+//   refs.cartListBlock.innerHTML = "";
+//     let cartArr = getDataFromLS(STORAGE_KEY);
+    
+//     for (const cartArrItem of cartArr) {
+//         let id = cartArrItem.id;
+//         console.log(id);
+
+//         try {
+//             const response = await getProductById(id);
+//             const cartId = renderProductCard(response, id);
+//             refs.cartListBlock.innerHTML += cartId;
+
+//             const deleteBtn = document.querySelector(`.js-cart-block .cart-card[data-productlist-id="${id}"] .card-delete-all-btn`);
+//             deleteBtn.addEventListener("click", () => {
+//                 deleteOneProduct(id);
+//             });
+
+//         } catch (error) {
+//             console.error(error.message);
+//         }
+//     }
+
+//     sum(cartArr);
+
+//     refs.cartCounter.textContent = cartArr.length;
+// }
+// 
